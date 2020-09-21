@@ -16,14 +16,13 @@ char    *ft_toupper(char *str)
 
 int     main(int argc, char **argv)
 {
-    int i;
+    int i(0);
 
     if (argc == 1)
     {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
         return (0);
     }
-    i = 1;
     while (argv[i])
     {
         std::cout << ft_toupper(argv[i]);
