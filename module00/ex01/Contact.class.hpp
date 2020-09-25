@@ -17,6 +17,8 @@ public:
     std::string fav_meal;
     std::string und_color;
     std::string secret;
+    void print(void);
+    void init(void);
 };
 
 #endif

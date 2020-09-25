@@ -11,3 +11,44 @@ Contact::~Contact(void)
 {
     // std::cout << "Destructor" << std::endl;
 }
+
+void    Contact::print(void)
+{
+    std::cout << "first name: " << this->first_name << std::endl;
+    std::cout << "last name: " << this->last_name << std::endl;
+    std::cout << "nickname: " << this->nickname << std::endl;
+    std::cout << "login: " << this->login << std::endl;
+    std::cout << "postal address: " << this->postal_address << std::endl;
+    std::cout << "email: " << this->email_address << std::endl;
+    std::cout << "phone number: " << this->phone_number << std::endl;
+    std::cout << "birthday: " << this->birthday << std::endl;
+    std::cout << "favorite meal: " << this->fav_meal << std::endl;
+    std::cout << "underwear color: " << this->und_color << std::endl;
+    std::cout << "darkest secret: " << this->secret << std::endl;
+}
+
+void    Contact::init(void)
+{
+    std::cout << "First name: ";
+    std::getline(std::cin, this->first_name);
+    std::cout << "Last name: ";
+    std::getline(std::cin, this->last_name);
+    std::cout << "Nickname: ";
+    std::getline(std::cin, this->nickname);
+    std::cout << "Login: ";
+    std::getline(std::cin, this->login);
+    std::cout << "Adress: ";
+    std::getline(std::cin, this->postal_address);
+    std::cout << "Email: ";
+    std::getline(std::cin, this->email_address);
+    std::cout << "Phone: ";
+    std::getline(std::cin, this->phone_number);
+    std::cout << "Bday: ";
+    std::getline(std::cin, this->birthday);
+    std::cout << "Favorite meal: ";
+    std::getline(std::cin, this->fav_meal);
+    std::cout << "Underwear color: ";
+    std::getline(std::cin, this->und_color);
+    std::cout << "Darkest secret: ";
+    std::getline(std::cin, this->secret);
+}
