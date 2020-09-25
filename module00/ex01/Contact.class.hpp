@@ -1,6 +1,8 @@
 #ifndef CONTACT_CLASS_H
 # define CONTACT_CLASS_H
 
+#include <string>
+
 class   Contact
 {
 public:
@@ -17,7 +19,8 @@ public:
     std::string fav_meal;
     std::string und_color;
     std::string secret;
-    void print(void);
+    void print_all(void);
+    void print_index_line(int index);
     void init(void);
 };
 

@@ -1,4 +1,4 @@
-#include <iostream>
+#include "book.hpp"
 #include "Contact.class.hpp"
 
 Contact::Contact(void)
@@ -12,7 +12,7 @@ Contact::~Contact(void)
     // std::cout << "Destructor" << std::endl;
 }
 
-void    Contact::print(void)
+void    Contact::print_all(void)
 {
     std::cout << "first name: " << this->first_name << std::endl;
     std::cout << "last name: " << this->last_name << std::endl;
@@ -25,6 +25,30 @@ void    Contact::print(void)
     std::cout << "favorite meal: " << this->fav_meal << std::endl;
     std::cout << "underwear color: " << this->und_color << std::endl;
     std::cout << "darkest secret: " << this->secret << std::endl;
+}
+
+void Contact::print_index_line(int index)
+{
+    if (this->first_name.size() > 10)
+    {
+        this->first_name.resize(10);
+        this->first_name[9] = '.';
+    }
+    if (this->last_name.size() > 10)
+    {
+        this->last_name.resize(10);
+        this->last_name[9] = '.';
+    }
+    if (this->nickname.size() > 10)
+    {
+        this->nickname.resize(10);
+        this->nickname[9] = '.';
+    }
+    std::cout << std::setw(10) << index
+    << " | " << std::setw(10) << this->first_name
+    << " | " << std::setw(10) << this->last_name
+    << " | " << std::setw(10) << this->nickname
+    << std::endl;
 }
 
 void    Contact::init(void)

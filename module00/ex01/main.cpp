@@ -1,39 +1,5 @@
-#include <string>
-#include <iostream>
-#include <istream>
-#include <fstream>
-#include <iomanip>
-
-// int main()
-// {
-//     std::string prenom;
-//     std::cout << "whats ur name?\n";
-//     std::getline(std::cin, prenom);
-//     prenom = prenom + "Nrinet";
-//     std:: cout << prenom << std::endl;
-// }
-
-// int main()
-// {
-//     std::ofstream file("myfile2");
-//     if (file)
-//     {
-//         std::cout << "ok" << std::endl;
-//     }
-//     file << "hello";
-// }
-
-// int main()
-// {
-//     std:: cout << 100 << std::endl;
-//     // std::cout.width(10);
-//     // std:: cout << std::setw(10);
-//     std:: cout << std::setw(10) << 100 << std::endl
-//     << 200 << std::setw(30) << std::setfill('*') << 300 << std::endl;
-
-// }
-
 #include "Contact.class.hpp"
+#include "book.hpp"
 
 void    add_contact(Contact book[8], int i)
 {
@@ -46,42 +12,19 @@ void    add_contact(Contact book[8], int i)
     book[i].init();
 }
 
-void    print_line(Contact book, int i)
-{
-    if (book.first_name.size() > 10)
-    {
-        book.first_name.resize(10);
-        book.first_name[9] = '.';
-    }
-    if (book.last_name.size() > 10)
-    {
-        book.last_name.resize(10);
-        book.last_name[9] = '.';
-    }
-    if (book.nickname.size() > 10)
-    {
-        book.nickname.resize(10);
-        book.nickname[9] = '.';
-    }
-    std::cout << std::setw(10) << i
-    << " | " << std::setw(10) << book.first_name
-    << " | " << std::setw(10) << book.last_name
-    << " | " << std::setw(10) << book.nickname
-    << std::endl;
-}
-
 void    get_and_print_entry(Contact book[8], int num)
 {
-    int index = -1;
+    std::string index;
+    int i;
     std::cout << "Enter contact's index: ";
-    std::cin >> index;
-    while (index == -1 || index > num - 1)
+    std::getline(std::cin, index);
+    while (index.length() > 1 || isdigit(index[0]) == 0 || (i = atoi(index.c_str())) >= num)
     {
         std::cout << "Wrong index. Enter again: ";
-        std::cin >> index;
+        std::getline(std::cin, index);
     }
-    std::cin.ignore(1000, '\n');
-    book[index].print();
+    i = index[0] - '0';
+    book[i].print_all();
 }
 
 void    search(Contact book[8], int num)
@@ -101,22 +44,19 @@ void    search(Contact book[8], int num)
     << std::endl;
     while (i < num)
     {
-        print_line(book[i], i);
+        book[i].print_index_line(i);
         i++;
     }
     get_and_print_entry(book, i);    
 }
 
-int main()
+int     main()
 {
     std::string cmd;
     Contact book[8];
-    int i = -1;
+    int i(0);
     
-    std::cin >> i;
-    std::cout << i;
-
-    while (0)
+    while (1)
     {
         std::cout << "Enter your command (ADD, SEARCH or EXIT): ";
         std::getline(std::cin, cmd);
@@ -130,9 +70,9 @@ int main()
         else if (cmd.compare("SEARCH") == 0)
             search(book, i);
         else
-            std::cout << "Wrong command:" << cmd << "|" << std::endl;
+            std::cout << "Wrong command:" << "[" << cmd << "]" << std::endl;
 
         
     }
-    // std::cout << "Bye" << std::endl;
+    std::cout << "Bye" << std::endl;
 }
