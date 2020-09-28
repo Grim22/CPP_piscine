@@ -3,9 +3,6 @@
 
 #include <string>
 #include <iostream>
-#include <istream>
-#include <fstream>
 #include <iomanip>
-#include <stdlib.h>
 
 #endif
