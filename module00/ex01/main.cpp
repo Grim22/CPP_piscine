@@ -1,4 +1,4 @@
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 #include "book.hpp"
 
 void    add_contact(Contact book[8], int i)

@@ -1,18 +1,15 @@
 #include "book.hpp"
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(void)
 {
-    // std::cout << "Constructor" << std::endl;
-    // this->num = 0;
 }
 
 Contact::~Contact(void)
 {
-    // std::cout << "Destructor" << std::endl;
 }
 
-void    Contact::print_all(void)
+void    Contact::print_all(void) const
 {
     std::cout << "first name: " << this->_first_name << std::endl;
     std::cout << "last name: " << this->_last_name << std::endl;
@@ -51,8 +48,32 @@ void Contact::print_index_line(int index)
     << std::endl;
 }
 
+void    Contact::set_email(void)
+{
+    std::string email;
+    size_t arobase_pos;
+    size_t dot_pos;
+    
+    while (1)
+    {
+        std::cout << "Email: ";
+        std::getline(std::cin, email);
+        arobase_pos = email.find_first_of('@');
+        dot_pos = email.find_last_of('.');
+        if (arobase_pos == std::string::npos || dot_pos == std::string::npos
+        || arobase_pos > dot_pos)
+            std::cout << "email not well formated, try again: " << std::endl;
+        else
+        {
+            this->_email_address = email;
+            break ; 
+        }
+    }
+}
+
 void    Contact::init(void)
 {
+    
     std::cout << "First name: ";
     std::getline(std::cin, this->_first_name);
     std::cout << "Last name: ";
@@ -63,8 +84,9 @@ void    Contact::init(void)
     std::getline(std::cin, this->_login);
     std::cout << "Adress: ";
     std::getline(std::cin, this->_postal_address);
-    std::cout << "Email: ";
-    std::getline(std::cin, this->_email_address);
+    
+    Contact::set_email();
+    
     std::cout << "Phone: ";
     std::getline(std::cin, this->_phone_number);
     std::cout << "Bday: ";

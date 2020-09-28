@@ -1,4 +1,4 @@
-SRC = main.cpp Contact.class.cpp
+SRC = main.cpp Contact.cpp
 OBJ = $(SRC:%.cpp=%.o)
 NAME = book
 CC = clang++

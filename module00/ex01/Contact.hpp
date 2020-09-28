@@ -8,9 +8,10 @@ class   Contact
 public:
     Contact(void);
     ~Contact(void);
-    void print_all(void);
+    void print_all(void) const;
     void print_index_line(int index);
     void init(void);
+    void set_email(void);
 
 private:
     std::string _first_name;
@@ -24,7 +25,6 @@ private:
     std::string _fav_meal;
     std::string _und_color;
     std::string _secret;
-    
 };
 
 #endif
