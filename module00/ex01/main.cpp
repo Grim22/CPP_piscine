@@ -5,7 +5,7 @@ void    add_contact(Contact book[8], int i)
 {
     if (i > 7)
     {
-        std::cout << "Phonebook is full: 8 contacts maximum";
+        std::cout << "Phonebook is full: 8 contacts maximum" << std::endl;
         return ;
 
     }
