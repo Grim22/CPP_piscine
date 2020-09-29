@@ -3,7 +3,7 @@
 #include <ctime>
 #include <iomanip>
 
-Account::Account( int initial_deposit ) : _amount(initial_deposit) , _nbDeposits(0) , _nbWithdrawals(0), _accountIndex(Account::_nbAccounts)
+Account::Account( int initial_deposit ) :  _accountIndex(Account::_nbAccounts) , _amount(initial_deposit) , _nbDeposits(0) , _nbWithdrawals(0)
 {
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created"
