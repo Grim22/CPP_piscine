@@ -1,6 +1,7 @@
 #include "acc.hpp"
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 
 Account::Account( int initial_deposit ) : _amount(initial_deposit) , _nbDeposits(0) , _nbWithdrawals(0), _accountIndex(Account::_nbAccounts)
 {
@@ -90,7 +91,13 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-    std::cout << "[timestamp] ";
+    time_t time;
+    tm *time_info;
+
+    time = std::time(0);
+    time_info = std::localtime(&time);
+    std::cout << std::setfill('0') << "[" << time_info->tm_year + 1900 << std::setw(2) << time_info->tm_mon + 1 << std::setw(2) << time_info->tm_mday << "_"
+    << std::setw(2) << time_info->tm_hour << std::setw(2) << time_info->tm_min << std::setw(2) << time_info->tm_sec << "] ";
 }
 
 int	Account::_nbAccounts = 0;
