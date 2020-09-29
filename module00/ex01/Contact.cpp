@@ -48,13 +48,15 @@ void Contact::print_index_line(int index)
     << std::endl;
 }
 
-void    Contact::set_email(void)
+int    Contact::set_email(void)
 {
     std::string email;
     size_t arobase_pos;
     size_t dot_pos;
-    
-    while (1)
+    int i;
+
+    i = 0;
+    while (i < 3)
     {
         std::cout << "Email: ";
         std::getline(std::cin, email);
@@ -66,12 +68,15 @@ void    Contact::set_email(void)
         else
         {
             this->_email_address = email;
-            break ; 
+            return (SUCCESS);
         }
+        i++;
     }
+        std::cout << "Too many attempts. Failed to add contact" << std::endl;
+        return (FAILURE);
 }
 
-void    Contact::init(void)
+int    Contact::init(void)
 {
     
     std::cout << "First name: ";
@@ -84,9 +89,8 @@ void    Contact::init(void)
     std::getline(std::cin, this->_login);
     std::cout << "Adress: ";
     std::getline(std::cin, this->_postal_address);
-    
-    Contact::set_email();
-    
+    if (Contact::set_email() == FAILURE)
+        return (FAILURE);
     std::cout << "Phone: ";
     std::getline(std::cin, this->_phone_number);
     std::cout << "Bday: ";
@@ -97,4 +101,5 @@ void    Contact::init(void)
     std::getline(std::cin, this->_und_color);
     std::cout << "Darkest secret: ";
     std::getline(std::cin, this->_secret);
+    return (SUCCESS);
 }

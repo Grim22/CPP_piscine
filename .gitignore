@@ -1,3 +1,5 @@
 .DS_Store
 *.json
 a.out
+book
+*.o

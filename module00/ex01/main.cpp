@@ -1,21 +1,23 @@
 #include "Contact.hpp"
 #include "book.hpp"
 
-void    add_contact(Contact book[8], int i)
+int    add_contact(Contact book[MAX_CONTACTS], int i)
 {
-    if (i > 7)
+    if (i > MAX_CONTACTS - 1)
     {
         std::cout << "Phonebook is full: 8 contacts maximum" << std::endl;
-        return ;
-
+        return (FAILURE);
     }
-    book[i].init();
+    if (book[i].init() == FAILURE)
+        return (FAILURE);
+    return (SUCCESS);
 }
 
 void    get_and_print_entry(Contact book[8], int num)
 {
     std::string index;
     int i;
+
     std::cout << "Enter contact's index: ";
     std::getline(std::cin, index);
     while (index.length() > 1 || isdigit(index[0]) == 0 || (i = atoi(index.c_str())) >= num)
@@ -53,7 +55,7 @@ void    search(Contact book[8], int num)
 int     main()
 {
     std::string cmd;
-    Contact book[8];
+    Contact book[MAX_CONTACTS];
     int i(0);
     
     while (1)
@@ -64,15 +66,13 @@ int     main()
             break ;
         else if (cmd.compare("ADD") == 0)
         {
-            add_contact(book, i);
-            i++;
+            if (add_contact(book, i) == SUCCESS)
+                i++;
         }
         else if (cmd.compare("SEARCH") == 0)
             search(book, i);
         else
             std::cout << "Wrong command:" << "[" << cmd << "]" << std::endl;
-
-        
     }
     std::cout << "Bye" << std::endl;
 }

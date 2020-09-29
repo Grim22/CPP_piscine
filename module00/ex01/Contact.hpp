@@ -10,8 +10,8 @@ public:
     ~Contact(void);
     void print_all(void) const;
     void print_index_line(int index);
-    void init(void);
-    void set_email(void);
+    int init(void);
+    int set_email(void);
 
 private:
     std::string _first_name;
