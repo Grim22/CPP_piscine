@@ -32,6 +32,7 @@ void    get_and_print_entry(Contact book[8], int num)
 void    search(Contact book[8], int num)
 {
     int i;
+    Contact tmp;
 
     if (num == 0)
     {
@@ -46,7 +47,8 @@ void    search(Contact book[8], int num)
     << std::endl;
     while (i < num)
     {
-        book[i].print_index_line(i);
+        tmp = book[i];
+        tmp.print_index_line(i);
         i++;
     }
     get_and_print_entry(book, i);    
