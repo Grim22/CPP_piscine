@@ -11,3 +11,8 @@ Pony::~Pony(void)
 {
     std::cout << "pony " << this->name << " destroyed" << std::endl;
 }
+
+int Pony::get_age(void) const
+{
+    return (this->age);
+}
