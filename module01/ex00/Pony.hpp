@@ -1,13 +1,18 @@
 # ifndef PONNY_H
 #define PONNY_H
 
-#include <cstring>
+#include <string>
 
-class Pony {
-
+class Pony 
+{
 public:
-    
+    Pony(std::string color, std::string name, std::string origin, std::string fav_meal, int age)  ;
+    ~Pony(void);
+    std::string color;
+    std::string name;
+    std::string origin;
+    std::string fav_meal;
+    int age;
+};
 
-}
-
-# endif
+#endif
