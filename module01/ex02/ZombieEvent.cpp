@@ -40,7 +40,7 @@ std::string get_random_name(void)
     std::srand(std::time(NULL));
     while (i < 8)
     {
-        name.push_back(rand() % 96 + 32);
+        name.push_back(std::rand() % 96 + 32);
         i++;
     }
     return name;
