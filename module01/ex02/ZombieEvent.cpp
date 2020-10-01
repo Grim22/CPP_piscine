@@ -7,18 +7,20 @@
 ZombieEvent::ZombieEvent(void)
 {
     this->type = "not defined";
-    std::cout << "event destroyed" << std::endl;
+    std::cout << "[event created]" << std::endl;
 }
 
 ZombieEvent::~ZombieEvent(void)
 {
-    std::cout << "event destroyed" << std::endl;
+    std::cout << "[event destroyed]" << std::endl;
 }
 
 void    ZombieEvent::setZombieType(std::string type)
 {
     this->type = type;
 }
+
+// zombie* is returned. we use a pointer that we allocate and then delete in the main
 
 Zombie  *ZombieEvent::newZombie(std::string name) const
 {
@@ -35,7 +37,7 @@ std::string get_random_name(void)
     std::string name;
     int i(0);
 
-    srand(time(NULL));
+    std::srand(std::time(NULL));
     while (i < 8)
     {
         name.push_back(rand() % 96 + 32);
@@ -44,14 +46,14 @@ std::string get_random_name(void)
     return name;
 }
 
+// zombie is not returned. not need to allocate it dynamically
+
 void    ZombieEvent::randomChump(void) const
 {
-    Zombie *zombie;
+    Zombie zombie;
     std::string name;
 
-    zombie = new Zombie;
-    zombie->set_name(get_random_name());
-    zombie->set_type(this->type);
-    zombie->announce();
-    delete zombie;
+    zombie.set_name(get_random_name());
+    zombie.set_type(this->type);
+    zombie.announce();
 }

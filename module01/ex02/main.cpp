@@ -1,24 +1,21 @@
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 
 int main()
 {
-    Zombie paul;
-    Zombie* zombies;
-    ZombieEvent event;
+    Zombie paul; // zombie created on stack
+    Zombie* pat;
+    ZombieEvent good_zombies; // event created on stack
     
     paul.set_name("paulo");
     paul.set_type("bad");
     paul.announce();
     
-    event.setZombieType("good");
-    zombies = event.newZombie("patrick");
-    zombies->announce();
-    delete zombies;
+    good_zombies.setZombieType("good");
+    pat = good_zombies.newZombie("patrick"); // zombie created on heap
+    pat->announce();
+    delete pat;
     
-    event.setZombieType("ok");
-    event.randomChump();
+    good_zombies.randomChump(); // zombie created on stack
 }

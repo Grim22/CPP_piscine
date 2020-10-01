@@ -5,11 +5,12 @@ Zombie::Zombie(void)
 {
     this->type = "undefined";
     this->name = "undefined";
+    std::cout << "[zombie created]" << std::endl;
 }
 
 Zombie::~Zombie(void)
 {
-    std::cout << this->name << " destroyed" << std::endl;
+    std::cout << "[" << this->name << " destroyed]" << std::endl;
 }
 
 void    Zombie::announce(void) const
