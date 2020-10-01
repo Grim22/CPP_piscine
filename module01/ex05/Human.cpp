@@ -8,12 +8,12 @@ Human::Human(void): brain()
 Human::~Human(void)
 {}
 
-Brain&   Human::getBrain(void)
+const Brain&   Human::getBrain(void) const
 {
     return(this->brain);
 }
 
-std::string Human::identify()
+std::string Human::identify() const
 {
     return(this->brain.identify());
 }
