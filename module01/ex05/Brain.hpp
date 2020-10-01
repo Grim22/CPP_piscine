@@ -6,12 +6,9 @@
 class Brain
 {
 public:
-    std::string identify(void);
+    std::string identify(void) const;
     Brain();
     ~Brain();
-private:
-    // int size;
-    // int IQ;
 };
 
 # endif

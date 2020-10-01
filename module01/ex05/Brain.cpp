@@ -1,14 +1,14 @@
 #include "Brain.hpp"
+#include <ios> // std::hex std::uppercase std::showbase
+#include <sstream> // std::stringstream
 #include <iostream>
-#include <iomanip>
-#include <sstream>
 
-std::string Brain::identify()
+std::string Brain::identify() const
 {
     long int address;
     address = (long int)this;
     std::stringstream ss;
-    ss << std::setbase(16) << std::setiosflags (std::ios::showbase | std::ios::uppercase) << address;
+    ss << std::hex << std::uppercase << std::showbase << address;
     return (ss.str());
 }
 

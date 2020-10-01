@@ -1,8 +1,11 @@
 #include "Brain.hpp"
+#include "Human.hpp"
 #include <iostream>
 
-int main()
-{
-    Brain brain;
-    std::cout << brain.identify() << std::endl;
+
+int main() {
+    Human bob;
+
+    std::cout << bob.identify() << std::endl;
+    std::cout << bob.getBrain().identify() << std::endl;
 }
