@@ -14,8 +14,6 @@ public:
     void    announce(void) const;
     void    set_type(std::string type);   
     void    set_name(std::string name);
-    // std::string get_name(void) const;   
-    // std::string get_type(void) const;   
 };
 
 #endif
