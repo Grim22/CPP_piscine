@@ -1,8 +1,5 @@
-#include <fstream>
-#include <sstream>
 #include <iostream>
 #include <string>
-#include <locale>
 #include "Sed.hpp"
 
 
@@ -11,7 +8,6 @@ int main(int ac, char **av)
     std::string line;
     sed file;
     size_t pos;
-    int i(0);
 
     if (ac != 4)
     {

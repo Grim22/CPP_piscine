@@ -9,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) -c $(FLAGS) $^ -o $@
 
 clean:

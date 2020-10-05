@@ -2,7 +2,7 @@
 # define SED_HPP
 
 #include <string>
-#include "fstream"
+#include "fstream" // ifstream ofstream
 
 class sed
 {

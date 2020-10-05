@@ -1,5 +1,6 @@
 #include "Sed.hpp"
-#include <iostream>
+#include <iostream> // cout
+#include <locale> // toupper
 
 sed::sed(void){}
 sed::~sed(void){
@@ -39,7 +40,12 @@ bool sed::open_files(char *name)
         std::cout << "Error: cant open file" << std::endl;
         return false;
     }
-    this->_file_replace.open(to_upper(name) + ".replace");
+    this->_file_replace.open(to_upper(name) + ".replace", std::ofstream::trunc);
+    if (this->_file_replace.fail())
+    {
+        std::cout << "Error: cant open output file" << std::endl;
+        return false;
+    }
     return true;
 }
 
