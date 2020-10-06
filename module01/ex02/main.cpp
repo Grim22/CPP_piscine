@@ -12,10 +12,13 @@ int main()
     // Zombie* is returned. We should allocate it dynamically
     // => allocation of a Zombie on the heap
     std::cout << std::endl;
-    Zombie* pat;
-    pat = good_zombies.newZombie("patrick");
-    pat->announce();
-    delete pat;
+    Zombie* pat[2];
+    pat[0] = good_zombies.newZombie("patrick");
+    pat[0]->announce();
+    pat[1] = good_zombies.newZombie("paddy");
+    pat[1]->announce();
+    delete pat[0];
+    delete pat[1];
     std::cout << "[back to main]" << std::endl;
     
     // we use randomChump 
