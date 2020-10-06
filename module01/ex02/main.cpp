@@ -4,18 +4,26 @@
 
 int main()
 {
-    Zombie paul; // zombie created on stack
-    Zombie* pat;
-    ZombieEvent good_zombies; // event created on stack
-    
-    paul.set_name("paulo");
-    paul.set_type("bad");
-    paul.announce();
-    
+    // we create ZombieEvent and set its type
+    ZombieEvent good_zombies;
     good_zombies.setZombieType("good");
-    pat = good_zombies.newZombie("patrick"); // zombie created on heap
+    
+    // we use newZombie
+    // Zombie* is returned. We should allocate it dynamically
+    // => allocation of a Zombie on the heap
+    std::cout << std::endl;
+    Zombie* pat;
+    pat = good_zombies.newZombie("patrick");
     pat->announce();
     delete pat;
+    std::cout << "[back to main]" << std::endl;
     
-    good_zombies.randomChump(); // zombie created on stack
+    // we use randomChump 
+    // Zombie is not returned. No need to allocate it dynamically
+    // => allocation of a Zombie on the stack
+    std::cout << std::endl;
+    good_zombies.randomChump();
+    std::cout << "[back to main]" << std::endl;
+    
+    std::cout << std::endl;
 }
