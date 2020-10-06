@@ -7,13 +7,10 @@ class Pony
 {
     std::string color;
     std::string name;
-    std::string origin;
-    std::string fav_meal;
-    int age;
 public:
-    Pony(std::string color, std::string name, std::string origin, std::string fav_meal, int age)  ;
+    Pony(std::string color, std::string name)  ;
     ~Pony(void);
-    int get_age() const;
+    void    announce(void);
 };
 
 #endif
