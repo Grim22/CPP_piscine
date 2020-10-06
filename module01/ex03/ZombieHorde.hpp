@@ -1,7 +1,7 @@
 #ifndef ZOMBIE_HORDE_H
 # define ZOMBIE_HORDE_H
 
-#include <string>
+# include <string>
 
 class ZombieHorde
 {
