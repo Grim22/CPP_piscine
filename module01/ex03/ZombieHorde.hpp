@@ -12,7 +12,6 @@ public:
     ZombieHorde(int N);
     ~ZombieHorde(void);
     void    announce(void) const;
-    Zombie *getHorde(void) const;
 };
 
 #endif

@@ -59,8 +59,3 @@ void    ZombieHorde::announce(void) const
         i++;
     }
 }
-
-Zombie  *ZombieHorde::getHorde(void) const
-{
-    return (this->horde);
-}
