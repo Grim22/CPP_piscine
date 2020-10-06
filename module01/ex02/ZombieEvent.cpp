@@ -1,8 +1,8 @@
 #include "ZombieEvent.hpp"
 #include "Zombie.hpp"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <cstdlib> // std::rand std::srand
+#include <ctime> // std::time
 
 ZombieEvent::ZombieEvent(void)
 {

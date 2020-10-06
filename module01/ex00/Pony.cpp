@@ -11,7 +11,7 @@ Pony::~Pony(void)
     std::cout << "**pony " << this->name << " destroyed**" << std::endl;
 }
 
-void    Pony::announce(void)
+void    Pony::announce(void) const
 {
     std::cout << "Hello I'm " << this->name << ", my color is " << this->color << std::endl;
 }
