@@ -14,7 +14,7 @@ void Logger::logToFile(std::string log)
     this->file << log << std::endl;
 }
 
-std::string Logger::makeLogEntry(std::string message)
+std::string Logger::makeLogEntry(std::string message) const
 {
     std::stringstream ss;
 

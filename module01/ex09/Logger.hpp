@@ -9,7 +9,7 @@ class Logger{
     void logToConsole(std::string log);
     void logToFile(std::string log);
     std::ofstream file;
-    std::string makeLogEntry(std::string message);
+    std::string makeLogEntry(std::string message) const;
 
     public:
     Logger(void);
