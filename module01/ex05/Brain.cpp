@@ -12,5 +12,9 @@ std::string Brain::identify() const
     return (ss.str());
 }
 
-Brain::Brain(void){}
-Brain::~Brain(void){}
+Brain::Brain(void){
+    std::cout << "Brain created" << std::endl;
+}
+Brain::~Brain(void){
+    std::cout << "Brain destroyed" << std::endl;
+}

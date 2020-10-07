@@ -3,10 +3,13 @@
 
 Human::Human(void): brain()
 {
+    std::cout << "human created" << std::endl;
 }
 
 Human::~Human(void)
-{}
+{
+    std::cout << "Human destroyed" << std::endl;
+}
 
 const Brain&   Human::getBrain(void) const
 {
