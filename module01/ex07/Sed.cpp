@@ -20,7 +20,7 @@ bool sed::set_strings(char *find, char *replace)
     return true;
 }
 
-std::string to_upper(char *str)
+const std::string to_upper(char *str)
 {
     int i(0);
     while (str[i])
@@ -40,7 +40,11 @@ bool sed::open_files(char *name)
         std::cout << "Error: cant open file" << std::endl;
         return false;
     }
-    this->_file_replace.open(to_upper(name) + ".replace", std::ofstream::trunc);
+    std::string replace_filename;
+    std::string tmp = ".replace";
+    replace_filename = to_upper(name).c_str() + tmp;
+
+    this->_file_replace.open(replace_filename.c_str(), std::ofstream::trunc);
     if (this->_file_replace.fail())
     {
         std::cout << "Error: cant open output file" << std::endl;
