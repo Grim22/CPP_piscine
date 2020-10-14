@@ -32,10 +32,10 @@ void    Fixed::setRawBits(int const raw)
     this->value = raw;
 }
 
-Fixed&  Fixed::operator=(const Fixed &copy)
+Fixed&  Fixed::operator=(const Fixed &rhs)
 {
     std::cout << "Assignement operator called" << std::endl;
-    this->value = copy.getRawBits();
+    this->value = rhs.getRawBits();
     return(*this);
 }
 
