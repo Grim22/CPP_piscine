@@ -18,6 +18,12 @@ class Fixed{
     void    setRawBits(int const raw);
     float   toFloat(void) const;
     int     toInt(void) const;
+    bool    operator>(const Fixed &rhs) const;
+    bool    operator<(const Fixed &rhs) const;
+    bool    operator>=(const Fixed &rhs) const;
+    bool    operator<=(const Fixed &rhs) const;
+    bool    operator==(const Fixed &rhs) const;
+    bool    operator!=(const Fixed &rhs) const;
     Fixed&  operator=(const Fixed &rhs); // on renvoie l'instance courante modifiee (reference car c'est plus efficace quune copie), ce qui permet de "chainer" les '=' (a = b = c = d)
     Fixed   operator+(const Fixed &rhs) const; // renvoie une copie (et non une reference: on ne peut pas car c'est un "temporary object"**) de l'instance cree dans la fonction
     Fixed   operator-(const Fixed &rhs) const;
@@ -29,5 +35,6 @@ std::ostream & operator<<(std::ostream &o, Fixed const &rhs); // ne peut pas etr
 // on renvoie le ostream modifie (reference car plus efficace qu'une copie), afin de pouvoir chainer les << 
 
 // Rq: operator overloading: pourquoi une reference en parametre et non une copie: plus efficace: on utilise l'objet existant plutot que davoir a en creer une copie !
+
 //**https://docs.microsoft.com/en-us/cpp/cpp/temporary-objects?view=vs-2019. "These temporary objects are created only if your program does not copy the return value to an object"
 #endif

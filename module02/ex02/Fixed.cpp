@@ -68,6 +68,51 @@ Fixed&  Fixed::operator=(const Fixed &rhs)
     return(*this);
 }
 
+bool    Fixed::operator>(const Fixed &rhs) const
+{
+    if (this->getRawBits() > rhs.getRawBits())
+        return true;
+    else
+        return false; 
+}
+
+bool    Fixed::operator>=(const Fixed &rhs) const
+{
+    if (this->getRawBits() >= rhs.getRawBits())
+        return true;
+    else
+        return false; 
+}
+bool    Fixed::operator<(const Fixed &rhs) const
+{
+    if (this->getRawBits() < rhs.getRawBits())
+        return true;
+    else
+        return false; 
+}
+bool    Fixed::operator<=(const Fixed &rhs) const
+{
+    if (this->getRawBits() <= rhs.getRawBits())
+        return true;
+    else
+        return false; 
+}
+bool    Fixed::operator==(const Fixed &rhs) const
+{
+    if (this->getRawBits() == rhs.getRawBits())
+        return true;
+    else
+        return false; 
+}
+
+bool    Fixed::operator!=(const Fixed &rhs) const
+{
+    if (this->getRawBits() != rhs.getRawBits())
+        return true;
+    else
+        return false; 
+}
+
 Fixed   Fixed::operator+(const Fixed &rhs) const
 {
     Fixed a;

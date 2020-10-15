@@ -3,11 +3,13 @@
 
 int main()
 {
-    Fixed a(-10);
-    Fixed b(-2.5f);
+    Fixed a(2);
+    Fixed b(2.1f);
     Fixed e(a / b); 
     std::cout << "e is " << e << std::endl;
     std::cout << "e is " << e.toInt() << " as integer" << std::endl;
+    if (a != b)
+        std::cout << "a is greater than b" << std::endl;
     return 0;
 
     // Fixed a;
