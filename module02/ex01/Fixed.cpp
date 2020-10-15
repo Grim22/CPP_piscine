@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath> // roundf
 
-const int Fixed::num_fract_bit = 3;
+const int Fixed::num_fract_bit = 8;
 
 Fixed::Fixed(void): value(0)
 {
@@ -11,17 +11,9 @@ Fixed::Fixed(void): value(0)
 
 Fixed::Fixed(const float f)
 {
-    float tmp;
-    int i;
     std::cout << "Float constructor called" << std::endl;
-    i = 0;
-    tmp = f;
-    while(i < this->num_fract_bit)
-    {
-        tmp = tmp * 2;
-        i++;
-    }
-    this->value = roundf(tmp);
+    this->value = roundf(f * (1 << this->num_fract_bit));
+    // revient a multiplier le float par 2^num_fract_bit et a arrondir a lentier le plus proche
 }
 
 Fixed::Fixed(const int i)
@@ -57,26 +49,23 @@ void    Fixed::setRawBits(int const raw)
 float   Fixed::toFloat(void) const
 {
     float ret;
-    int i;
 
     ret = this->value;
-    i = 0;
-    while (i < this->num_fract_bit)
-    {
-        ret = ret / 2;
-        i++;
-    }
+    // on converti en float
+    ret = ret / (1 << this->num_fract_bit);
+    // revient a diviser par 2^num_fract_bit
     return (ret);
 }
 
 int     Fixed::toInt(void) const
 {
-    return (this->value >> this->num_fract_bit);
+    return (this->value / (1 << this->num_fract_bit));
+    // revient a diviser par 2^num_fract_bit
 }
 
 Fixed&  Fixed::operator=(const Fixed &rhs)
 {
-    std::cout << "Assignement operator called" << std::endl;
+    std::cout << "Assignation operator called" << std::endl;
     this->value = rhs.getRawBits();
     return(*this);
 }
