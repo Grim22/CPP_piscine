@@ -18,11 +18,11 @@ class Fixed{
     void    setRawBits(int const raw);
     float   toFloat(void) const;
     int     toInt(void) const;
-    Fixed&  operator=(const Fixed &copy); // on renvoie l'instance courante modifiee (reference), ce qui permet de "chainer" les '=' (a = b = c = d) (pour pouvoir chainer on renvoie une reference, car c'est bien une reference qui est attendue en argument)
+    Fixed&  operator=(const Fixed &copy); // on renvoie l'instance courante modifiee (reference), ce qui permet de "chainer" les '=' (a = b = c = d) 
 };
 
 std::ostream & operator<<(std::ostream &o, Fixed const &rhs); // ne peut pas etre defini comme une fonction membre, car supposerait que le parametre de gauche de l'operateur (un ostream) est une instance de la classe
-// on renvoie le ostream modifie (reference), afin de pouvoir chainer les << (c'est bien une reference qui est attendue en argument)
+// on renvoie le ostream modifie (reference), afin de pouvoir chainer les <<
 
 // Rq: operator overloading: pourquoi une reference en parametre et non une copie: plus efficace: on utilise l'objet existant plutot que davoir a en creer une copie !
 
