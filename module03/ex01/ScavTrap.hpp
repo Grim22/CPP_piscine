@@ -20,11 +20,11 @@ class ScavTrap{
     ScavTrap(const ScavTrap &copy);
     ~ScavTrap(void);
     ScavTrap&  operator=(const ScavTrap &copy);
-    void rangedAttack(std::string const & target);
-    void meleeAttack(std::string const & target);
+    void rangedAttack(std::string const & target) const;
+    void meleeAttack(std::string const & target) const;
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
-    void challengeNewcomer(void);
+    void challengeNewcomer(void) const;
 };
 
 #endif

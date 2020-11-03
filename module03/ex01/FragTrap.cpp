@@ -38,13 +38,13 @@ FragTrap&   FragTrap::operator=(const FragTrap &rhs)
     return(*this);
 }
 
-void    FragTrap::rangedAttack(std::string const & target)
+void    FragTrap::rangedAttack(std::string const & target) const
 {
     std::cout << "FR4G-TP " << this->name << " attacks " << target
     << " at range, causing " << this->ranged_attack_damage << " points of damage!" << std::endl;
 }
 
-void    FragTrap::meleeAttack(std::string const & target)
+void    FragTrap::meleeAttack(std::string const & target) const
 {
     std::cout << "FR4G-TP " << this->name << " melee-attacks " << target
     << ", causing " << this->melee_attack_damage << " points of damage!" << std::endl;
