@@ -20,10 +20,10 @@ class ClapTrap{
     ClapTrap(const ClapTrap &copy);
     ~ClapTrap(void);
     ClapTrap&  operator=(const ClapTrap &copy);
-    // void rangedAttack(std::string const & target);
-    // void meleeAttack(std::string const & target);
-    // void takeDamage(unsigned int amount);
-    // void beRepaired(unsigned int amount);
+    void rangedAttack(std::string const & target) const;
+    void meleeAttack(std::string const & target) const;
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
 
 #endif

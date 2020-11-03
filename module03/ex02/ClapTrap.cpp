@@ -25,7 +25,7 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap&   ClapTrap::operator=(const ClapTrap &rhs)
 {
-    //std::cout << "Assignement operator called" << std::endl;
+    std::cout << "ClapTrap Assignement operator called" << std::endl;
     this->armor_damage_reduction = rhs.armor_damage_reduction;
     this->energy_points = rhs.energy_points;
     this->hit_points = rhs.hit_points;
@@ -38,38 +38,38 @@ ClapTrap&   ClapTrap::operator=(const ClapTrap &rhs)
     return(*this);
 }
 
-// void    ClapTrap::rangedAttack(std::string const & target)
-// {
-//     std::cout << "FR4G-TP " << this->name << " attacks " << target
-//     << " at range, causing " << this->ranged_attack_damage << " points of damage!" << std::endl;
-// }
+void    ClapTrap::rangedAttack(std::string const & target) const
+{
+    std::cout << "FR4G-TP " << this->name << " attacks " << target
+    << " at range, causing " << this->ranged_attack_damage << " points of damage!" << std::endl;
+}
 
-// void    ClapTrap::meleeAttack(std::string const & target)
-// {
-//     std::cout << "FR4G-TP " << this->name << " melee-attacks " << target
-//     << ", causing " << this->melee_attack_damage << " points of damage!" << std::endl;
-// }
+void    ClapTrap::meleeAttack(std::string const & target) const
+{
+    std::cout << "FR4G-TP " << this->name << " melee-attacks " << target
+    << ", causing " << this->melee_attack_damage << " points of damage!" << std::endl;
+}
 
-// void    ClapTrap::takeDamage(unsigned int amount)
-// {
-//     unsigned int taken;
-//     taken = amount - this->armor_damage_reduction;
-//     if (amount <= this->armor_damage_reduction)
-//         taken = 0;
-//     if (this->energy_points <= taken)
-//         taken = this->energy_points;
-//     this->energy_points -= taken;
-//     std::cout << "FR4G-TP " << this->name << " takes damage for " << taken << " points !(" << this->energy_points << " energy points remaining)" << std::endl;
-// }
+void    ClapTrap::takeDamage(unsigned int amount)
+{
+    unsigned int taken;
+    taken = amount - this->armor_damage_reduction;
+    if (amount <= this->armor_damage_reduction)
+        taken = 0;
+    if (this->energy_points <= taken)
+        taken = this->energy_points;
+    this->energy_points -= taken;
+    std::cout << "FR4G-TP " << this->name << " takes damage for " << taken << " points !(" << this->energy_points << " energy points remaining)" << std::endl;
+}
 
-// void    ClapTrap::beRepaired(unsigned int amount)
-// {
-//    unsigned int healed;
+void    ClapTrap::beRepaired(unsigned int amount)
+{
+   unsigned int healed;
 
-//     if (this->energy_points + amount >= this->max_energy_points)
-//         healed = this->max_energy_points - this->energy_points;
-//     else
-//         healed = amount;
-//     this->energy_points += healed;
-//     std::cout << "FR4G-TP " << this->name << " is repaired for " << healed << " points !(" << this->energy_points << " energy points remaining)" << std::endl;
-// }
+    if (this->energy_points + amount >= this->max_energy_points)
+        healed = this->max_energy_points - this->energy_points;
+    else
+        healed = amount;
+    this->energy_points += healed;
+    std::cout << "FR4G-TP " << this->name << " is repaired for " << healed << " points !(" << this->energy_points << " energy points remaining)" << std::endl;
+}

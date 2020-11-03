@@ -20,8 +20,8 @@ class FragTrap: public ClapTrap {
     FragTrap(const FragTrap &copy);
     ~FragTrap(void);
     FragTrap&  operator=(const FragTrap &copy);
-    void rangedAttack(std::string const & target);
-    void meleeAttack(std::string const & target);
+    void rangedAttack(std::string const & target) const;
+    void meleeAttack(std::string const & target) const;
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
     void vaulthunter_dot_exe(std::string const & target);
