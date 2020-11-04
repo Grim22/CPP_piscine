@@ -45,19 +45,7 @@ void    NinjaTrap::rangedAttack(std::string const & target) const
 void    NinjaTrap::meleeAttack(std::string const & target) const
 {
     std::cout << "// NinjaTrap rules ! // ";
-    ClapTrap::rangedAttack(target);
-}
-
-void    NinjaTrap::takeDamage(unsigned int amount)
-{
-    std::cout << "// NinjaTrap rules ! // ";
-    ClapTrap::takeDamage(amount);
-}
-
-void    NinjaTrap::beRepaired(unsigned int amount)
-{
-    std::cout << "// NinjaTrap rules ! // ";
-    ClapTrap::beRepaired(amount);
+    ClapTrap::meleeAttack(target);
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap &target) const

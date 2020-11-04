@@ -28,25 +28,13 @@ ScavTrap&   ScavTrap::operator=(const ScavTrap &rhs)
 void    ScavTrap::rangedAttack(std::string const & target) const
 {
     std::cout << "// ScavTrap rules ! // ";
-    ClapTrap::meleeAttack(target);
+    ClapTrap::rangedAttack(target);
 }
 
 void    ScavTrap::meleeAttack(std::string const & target) const
 {
     std::cout << "// ScavTrap rules ! // ";
     ClapTrap::meleeAttack(target);
-}
-
-void    ScavTrap::takeDamage(unsigned int amount)
-{
-    std::cout << "// ScavTrap rules ! // ";
-    ClapTrap::takeDamage(amount);
-}
-
-void    ScavTrap::beRepaired(unsigned int amount)
-{
-    std::cout << "// ScavTrap rules ! // ";
-    ClapTrap::beRepaired(amount);
 }
 
 std::string challenges[5] = {"Tourner sur soi même", "Crier vive Trump", "Chanter la marseillaise", "Faire une déclaration d'amour a Sophie Vigier", "Braver le confinement"};

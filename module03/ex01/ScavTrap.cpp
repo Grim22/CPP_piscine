@@ -40,13 +40,13 @@ ScavTrap&   ScavTrap::operator=(const ScavTrap &rhs)
 
 void    ScavTrap::rangedAttack(std::string const & target) const
 {
-    std::cout << "FR4G-TP --ST " << this->name << " attacks " << target
+    std::cout << "FR4G-TP --ScavTrap " << this->name << " attacks " << target
     << " at range, causing " << this->ranged_attack_damage << " points of damage!" << std::endl;
 }
 
 void    ScavTrap::meleeAttack(std::string const & target) const
 {
-    std::cout << "FR4G-TP --ST " << this->name << " melee-attacks " << target
+    std::cout << "FR4G-TP --ScavTrap " << this->name << " melee-attacks " << target
     << ", causing " << this->melee_attack_damage << " points of damage!" << std::endl;
 }
 
@@ -59,7 +59,7 @@ void    ScavTrap::takeDamage(unsigned int amount)
     if (this->energy_points <= taken)
         taken = this->energy_points;
     this->energy_points -= taken;
-    std::cout << "FR4G-TP --ST " << this->name << " takes damage for " << taken << " points !(" << this->energy_points << " energy points remaining)" << std::endl;
+    std::cout << "FR4G-TP " << this->name << " takes damage for " << taken << " points !(" << this->energy_points << " energy points remaining)" << std::endl;
 }
 
 void    ScavTrap::beRepaired(unsigned int amount)
@@ -71,7 +71,7 @@ void    ScavTrap::beRepaired(unsigned int amount)
     else
         healed = amount;
     this->energy_points += healed;
-    std::cout << "FR4G-TP --ST " << this->name << " is repaired for " << healed << " points !(" << this->energy_points << " energy points remaining)" << std::endl;
+    std::cout << "FR4G-TP " << this->name << " is repaired for " << healed << " points !(" << this->energy_points << " energy points remaining)" << std::endl;
 }
 
 std::string challenges[5] = {"Tourner sur soi même", "Crier vive Trump", "Chanter la marseillaise", "Faire une déclaration d'amour a Sophie Vigier", "Braver le confinement"};

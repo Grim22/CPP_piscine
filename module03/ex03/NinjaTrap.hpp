@@ -14,8 +14,6 @@ class NinjaTrap: public ClapTrap {
     NinjaTrap&  operator=(const NinjaTrap &copy);
     void rangedAttack(std::string const & target) const;
     void meleeAttack(std::string const & target) const;
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
     void ninjaShoebox(FragTrap &target) const;
     void ninjaShoebox(ScavTrap &target) const;
     void ninjaShoebox(NinjaTrap &target);

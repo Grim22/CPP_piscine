@@ -38,18 +38,6 @@ void    FragTrap::meleeAttack(std::string const & target) const
     ClapTrap::rangedAttack(target);
 }
 
-void    FragTrap::takeDamage(unsigned int amount)
-{
-    std::cout << "// FragTrap rules ! // ";
-    ClapTrap::takeDamage(amount);
-}
-
-void    FragTrap::beRepaired(unsigned int amount)
-{
-    std::cout << "// FragTrap rules ! // ";
-    ClapTrap::beRepaired(amount);
-}
-
 std::string attacks[5] = {"Hyper_drole_attack", "Vachement_fun_attack", "Des_barres_attack", "Borderlands_attack", "Hyperion attack"};
 
 void    FragTrap::vaulthunter_dot_exe(std::string const & target)
