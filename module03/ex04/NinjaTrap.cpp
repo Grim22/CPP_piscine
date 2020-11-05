@@ -5,7 +5,7 @@
 #include <cstdlib> // std::rand std::srand
 #include <ctime> // std::time
 
-NinjaTrap::NinjaTrap(const std::string &name): ClapTrap(name)
+NinjaTrap::NinjaTrap(const std::string &name): ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
 {
     std::cout << "NinjaTrap Default constructor called" << std::endl;
     this->hit_points = 60;
