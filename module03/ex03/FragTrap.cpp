@@ -3,8 +3,7 @@
 #include <cstdlib> // std::rand std::srand
 #include <ctime> // std::time
 
-
-FragTrap::FragTrap(const std::string &name): ClapTrap(name)
+FragTrap::FragTrap(const std::string &name): ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
     std::cout << "FragTrap Default constructor called" << std::endl;
 }

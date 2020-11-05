@@ -3,10 +3,14 @@
 #include <cstdlib> // std::rand std::srand
 #include <ctime> // std::time
 
+ClapTrap::ClapTrap(const std::string &name, unsigned int hit_points, unsigned int max_hp, unsigned int ep, unsigned int max_ep, unsigned int level, unsigned int mad, unsigned int rad, unsigned int adr):
+hit_points(hit_points), max_hit_points(max_hp), energy_points(ep), max_energy_points(max_ep), level(level), name(name), melee_attack_damage(mad), ranged_attack_damage(rad), armor_damage_reduction(adr)
+{
+    std::cout << "ClapTrap Parameter constructor called" << std::endl;
+    std::srand(std::time(NULL));
+}
 
-ClapTrap::ClapTrap(const std::string &name): hit_points(100), max_hit_points(100),
-energy_points(100), max_energy_points(100), level(1), name(name), melee_attack_damage(30),
-ranged_attack_damage(20), armor_damage_reduction(5)
+ClapTrap::ClapTrap()
 {
     std::cout << "ClapTrap Default constructor called" << std::endl;
     std::srand(std::time(NULL));

@@ -5,18 +5,9 @@
 #include <cstdlib> // std::rand std::srand
 #include <ctime> // std::time
 
-
-NinjaTrap::NinjaTrap(const std::string &name): ClapTrap(name)
+NinjaTrap::NinjaTrap(const std::string &name): ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
 {
     std::cout << "NinjaTrap Default constructor called" << std::endl;
-    this->hit_points = 60;
-    this->max_hit_points = 60;
-    this->energy_points = 120;
-    this->max_energy_points = 120;
-    this->level = 1;
-    this->melee_attack_damage = 60;
-    this->ranged_attack_damage = 5;
-    this->armor_damage_reduction = 0;
 }
 
 NinjaTrap::NinjaTrap(const NinjaTrap &copy): ClapTrap(copy)
