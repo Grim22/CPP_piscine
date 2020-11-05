@@ -16,7 +16,7 @@ class FragTrap{
     unsigned int armor_damage_reduction;
 
     public:
-    FragTrap(const std::string &name);
+    FragTrap(const std::string &name = "unknown");// default value given to parameter, so that constructor is also a default constructor
     FragTrap(const FragTrap &copy);
     ~FragTrap(void);
     FragTrap&  operator=(const FragTrap &copy);

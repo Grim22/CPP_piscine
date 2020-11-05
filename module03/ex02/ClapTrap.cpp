@@ -9,7 +9,7 @@ energy_points(100), max_energy_points(100), level(1), name(name), melee_attack_d
 ranged_attack_damage(20), armor_damage_reduction(5)
 {
     std::cout << "ClapTrap Default constructor called" << std::endl;
-    std::srand(std::time(NULL));
+    std::srand(std::time(NULL)); // pour l'utilsation de rand par FragTrap et ScavTrap
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)

@@ -8,7 +8,7 @@ class ScavTrap;
 class NinjaTrap: public ClapTrap {
 
     public:
-    NinjaTrap(const std::string &name);
+    NinjaTrap(const std::string &name = "unknown");
     NinjaTrap(const NinjaTrap &copy);
     ~NinjaTrap(void);
     NinjaTrap&  operator=(const NinjaTrap &copy);

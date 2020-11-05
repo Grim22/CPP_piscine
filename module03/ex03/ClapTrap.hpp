@@ -16,7 +16,7 @@ class ClapTrap{
     unsigned int armor_damage_reduction;
 
     public:
-    ClapTrap(const std::string &name);
+    ClapTrap(const std::string &name = "unknown");
     ClapTrap(const ClapTrap &copy);
     ~ClapTrap(void);
     ClapTrap&  operator=(const ClapTrap &copy);

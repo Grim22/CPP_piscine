@@ -9,7 +9,7 @@ class ScavTrap;
 class SuperTrap: public FragTrap, public NinjaTrap {
 
     public:
-    SuperTrap(const std::string &name = "unnamed"); // default value given to parameter, so that constructor is a cannonical default constructor
+    SuperTrap(const std::string &name = "unnamed"); // default value given to parameter, so that constructor can be used as a default constructor
     SuperTrap(const SuperTrap &copy);
     ~SuperTrap(void);
     SuperTrap&  operator=(const SuperTrap &copy);

@@ -16,7 +16,7 @@ class FragTrap: public ClapTrap {
     // unsigned int armor_damage_reduction;
 
     public:
-    FragTrap(const std::string &name);
+    FragTrap(const std::string &name = "unknown");
     FragTrap(const FragTrap &copy);
     ~FragTrap(void);
     FragTrap&  operator=(const FragTrap &copy);
