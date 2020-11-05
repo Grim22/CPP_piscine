@@ -47,11 +47,12 @@ int main()
     std::cout << "---" << std::endl;
     {
     SuperTrap benny("bigBen");
-    mike.takeDamage(10);
+    SuperTrap hector("hp");
     benny.vaulthunter_dot_exe("people");
     benny.ninjaShoebox(benny);
-    benny.beRepaired(20);
-    benny.takeDamage(10);
+    benny.meleeAttack("stud");
+    benny.rangedAttack("stud");
+    hector = benny;
     }
     std::cout << "---" << std::endl;
 }
