@@ -5,7 +5,7 @@
 
 ScavTrap::ScavTrap(const std::string &name): ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
 {
-    std::cout << "ScavTrap Name constructor called" << std::endl;
+    std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
