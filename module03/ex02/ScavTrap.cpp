@@ -3,8 +3,7 @@
 #include <cstdlib> // std::rand std::srand
 #include <ctime> // std::time
 
-
-ScavTrap::ScavTrap(const std::string &name): ClapTrap(name)
+ScavTrap::ScavTrap(const std::string &name): ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
 {
     std::cout << "ScavTrap Default constructor called" << std::endl;
 }
@@ -28,7 +27,7 @@ ScavTrap&   ScavTrap::operator=(const ScavTrap &rhs)
 void    ScavTrap::rangedAttack(std::string const & target) const
 {
     std::cout << "// ScavTrap rules ! // ";
-    ClapTrap::meleeAttack(target);
+    ClapTrap::rangedAttack(target);
 }
 
 void    ScavTrap::meleeAttack(std::string const & target) const

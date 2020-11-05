@@ -16,7 +16,8 @@ class ClapTrap{
     unsigned int armor_damage_reduction;
 
     public:
-    ClapTrap(const std::string &name = "unknown"); // default value given to parameter, so that constructor can be used as a default constructor
+    ClapTrap(const std::string &name, unsigned int hit_points, unsigned int max_hp, unsigned int ep, unsigned int max_ep, unsigned int level, unsigned int mad, unsigned int rad, unsigned int adr);
+    ClapTrap();
     ClapTrap(const ClapTrap &copy);
     ~ClapTrap(void);
     ClapTrap&  operator=(const ClapTrap &copy);

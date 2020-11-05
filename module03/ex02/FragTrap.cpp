@@ -3,8 +3,7 @@
 #include <cstdlib> // std::rand std::srand
 #include <ctime> // std::time
 
-
-FragTrap::FragTrap(const std::string &name): ClapTrap(name)
+FragTrap::FragTrap(const std::string &name): ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
     std::cout << "FragTrap Default constructor called" << std::endl;
 }
@@ -35,7 +34,7 @@ void    FragTrap::rangedAttack(std::string const & target) const
 void    FragTrap::meleeAttack(std::string const & target) const
 {
     std::cout << "// FragTrap rules ! // ";
-    ClapTrap::rangedAttack(target);
+    ClapTrap::meleeAttack(target);
 }
 
 std::string attacks[5] = {"Hyper_drole_attack", "Vachement_fun_attack", "Des_barres_attack", "Borderlands_attack", "Hyperion attack"};
