@@ -5,7 +5,7 @@
 #include <cstdlib> // std::rand std::srand
 #include <ctime> // std::time
 
-SuperTrap::SuperTrap(const std::string &name): ClapTrap(name, 100, 100, 120, 120, 1, 60, 20, 5)
+SuperTrap::SuperTrap(const std::string &name): ClapTrap(name, 100, 100, 120, 120, 1, 60, 20, 5) // default constructors of FragTrap and NinjaTrap will be called
 {
     std::cout << "SuperTrap Default constructor called" << std::endl;
 }

@@ -6,11 +6,9 @@
 
 int main()
 {
-    ClapTrap mounch;
-    mounch.takeDamage(20);
     ClapTrap heidi("heid");
-    heidi.takeDamage(10);
     heidi.beRepaired(20);
+    heidi.takeDamage(10);
     heidi.rangedAttack("you");
     heidi.meleeAttack("you");
 

@@ -17,7 +17,7 @@ class ClapTrap{
 
     public:
     ClapTrap(const std::string &name, unsigned int hit_points, unsigned int max_hp, unsigned int ep, unsigned int max_ep, unsigned int level, unsigned int mad, unsigned int rad, unsigned int adr);
-    ClapTrap();
+    ClapTrap(const std::string &name = "unknown");
     ClapTrap(const ClapTrap &copy);
     ~ClapTrap(void);
     ClapTrap&  operator=(const ClapTrap &copy);

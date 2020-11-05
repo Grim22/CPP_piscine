@@ -4,7 +4,8 @@
 #include <ctime> // std::time
 
 
-ScavTrap::ScavTrap(const std::string &name): hit_points(100), max_hit_points(100),
+ScavTrap::ScavTrap(const std::string &name):
+hit_points(100), max_hit_points(100),
 energy_points(100), max_energy_points(100), level(1), name(name), melee_attack_damage(30),
 ranged_attack_damage(20), armor_damage_reduction(5)
 {

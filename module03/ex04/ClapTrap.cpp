@@ -10,7 +10,8 @@ hit_points(hit_points), max_hit_points(max_hp), energy_points(ep), max_energy_po
     std::srand(std::time(NULL));
 }
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(const std::string &name):
+hit_points(0), max_hit_points(100), energy_points(0), max_energy_points(100), level(0), name(name), melee_attack_damage(0), ranged_attack_damage(0), armor_damage_reduction(0)
 {
     std::cout << "ClapTrap Default constructor called" << std::endl;
     std::srand(std::time(NULL));
