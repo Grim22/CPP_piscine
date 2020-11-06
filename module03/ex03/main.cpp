@@ -15,7 +15,7 @@ int main()
     std::cout << "---" << std::endl;
 
     ScavTrap paul("paulo");
-    paul.takeDamage(200);
+    paul.takeDamage(20);
     paul.beRepaired(20);
     paul.rangedAttack("you");
     paul.meleeAttack("you");
@@ -42,6 +42,7 @@ int main()
     Donald.ninjaShoebox(heidi);
     Donald.ninjaShoebox(paul);
     NinjaTrap Joe("sleepyJoe");
+    Joe.takeDamage(200);
     Donald.ninjaShoebox(Joe);
     std::cout << "---" << std::endl;
 }
