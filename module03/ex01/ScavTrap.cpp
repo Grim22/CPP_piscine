@@ -6,8 +6,8 @@
 
 ScavTrap::ScavTrap(const std::string &name):
 hit_points(100), max_hit_points(100),
-energy_points(100), max_energy_points(100), level(1), name(name), melee_attack_damage(30),
-ranged_attack_damage(20), armor_damage_reduction(5)
+energy_points(50), max_energy_points(50), level(1), name(name), melee_attack_damage(20),
+ranged_attack_damage(15), armor_damage_reduction(3)
 {
     std::cout << "Default constructor called -- ScavTrap" << std::endl;
     std::srand(std::time(NULL));

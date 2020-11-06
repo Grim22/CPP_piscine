@@ -31,6 +31,8 @@ int main()
     ScavTrap paul("paulo");
     paul.takeDamage(300);
     paul.beRepaired(20);
+    paul.meleeAttack("folks");
+    paul.rangedAttack("folks");
     paul.challengeNewcomer();
     paul.challengeNewcomer();
 }
