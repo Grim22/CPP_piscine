@@ -24,7 +24,7 @@ SuperTrap::~SuperTrap(void)
 SuperTrap&   SuperTrap::operator=(const SuperTrap &rhs)
 {
     std::cout << "SuperTrap Assignement operator called" << std::endl;
-    ClapTrap::operator=(rhs);
+    this->ClapTrap::operator=(rhs);
     return(*this);
 }
 

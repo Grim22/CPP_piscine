@@ -48,11 +48,14 @@ int main()
     {
     SuperTrap benny("bigBen");
     SuperTrap hector("hp");
-    benny.vaulthunter_dot_exe("people");
-    benny.ninjaShoebox(benny);
+    hector.takeDamage(20);
+    benny.ninjaShoebox(hector);
     benny.meleeAttack("stud");
+    hector.vaulthunter_dot_exe("people");
     benny.rangedAttack("stud");
     hector = benny;
+    hector.beRepaired(20);
+    benny.beRepaired(20);
     }
     std::cout << "---" << std::endl;
 }
