@@ -7,9 +7,9 @@ class Peon: public Victim{
     public:
     Peon(const std::string &name);
     Peon(const Peon &copy);
-    ~Peon(void);
+    virtual ~Peon(void);
     Peon&  operator=(const Peon &copy);
-    void getPolymorphed() const;  
+    virtual void getPolymorphed() const;  
 };
 
 #endif
