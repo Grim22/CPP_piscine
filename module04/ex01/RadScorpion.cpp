@@ -6,11 +6,8 @@ RadScorpion::RadScorpion(void): Enemy(80, "RadScorpion")
     std::cout << "*click click click*" << std::endl;
 }
 
-RadScorpion::RadScorpion(const RadScorpion &copy)
-{
-    std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
-}
+RadScorpion::RadScorpion(const RadScorpion &copy): Enemy(copy)
+{}
 
 RadScorpion::~RadScorpion(void)
 {

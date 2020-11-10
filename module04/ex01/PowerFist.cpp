@@ -6,11 +6,8 @@ PowerFist::PowerFist(void): AWeapon("PowerFist", 50, 8)
     std::cout << "PowerFist constructor called" << std::endl;
 }
 
-PowerFist::PowerFist(const PowerFist &copy)
-{
-    std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
-}
+PowerFist::PowerFist(const PowerFist &copy): AWeapon(copy)
+{}
 
 PowerFist::~PowerFist(void)
 {

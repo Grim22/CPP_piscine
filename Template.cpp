@@ -20,5 +20,12 @@ ${Class}::~${Class}(void)
 ${Class}&   ${Class}::operator=(const ${Class} &rhs)
 {
     std::cout << "Assignement operator called" << std::endl;
+    /*assignements*/
     return(*this);
+}
+
+std::ostream & operator<<(std::ostream &o, const {$Class} &rhs)
+{
+    o << /*text*/ << std::endl;
+    return o;
 }

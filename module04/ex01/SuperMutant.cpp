@@ -6,11 +6,8 @@ SuperMutant::SuperMutant(void): Enemy(170, "Super Mutant")
     std::cout << "Gaaah. Me want smash heads!" << std::endl;
 }
 
-SuperMutant::SuperMutant(const SuperMutant &copy)
-{
-    std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
-}
+SuperMutant::SuperMutant(const SuperMutant &copy): Enemy(copy)
+{}
 
 SuperMutant::~SuperMutant(void)
 {

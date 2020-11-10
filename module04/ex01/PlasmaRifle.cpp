@@ -6,11 +6,8 @@ PlasmaRifle::PlasmaRifle(void): AWeapon("Plasma Rifle", 5, 21)
     std::cout << "PlasmaRifle constructor called" << std::endl;
 }
 
-PlasmaRifle::PlasmaRifle(const PlasmaRifle &copy)
-{
-    std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
-}
+PlasmaRifle::PlasmaRifle(const PlasmaRifle &copy): AWeapon(copy)
+{}
 
 PlasmaRifle::~PlasmaRifle(void)
 {
