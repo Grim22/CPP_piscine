@@ -1,7 +1,7 @@
 #include "PowerFist.hpp"
 #include <iostream>
 
-PowerFist::PowerFist(void): AWeapon("PowerFist", 50, 8)
+PowerFist::PowerFist(void): AWeapon("PowerFist", 8, 50)
 {
     std::cout << "PowerFist constructor called" << std::endl;
 }

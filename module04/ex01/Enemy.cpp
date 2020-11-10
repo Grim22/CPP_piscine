@@ -24,14 +24,23 @@ int Enemy::getHP() const
     return this->hp;
 }
 
+const std::string & Enemy::gettype() const
+{
+    return this->type;
+}
+
 void Enemy::takeDamage(int damage)
 {
-    int taken;
+    int taken(damage);
     if (damage < 0)
         taken = 0;
     if (this->hp < damage)
-        taken = damage;
+        taken = this->hp;
     this->hp -= taken;
+    if (this->hp == 0)
+        std::cout << this->type << "is dead !" << std::endl;
+    else
+        std::cout << this->type << " has " << this->hp << " HP remaining" << std::endl;
 }
 Enemy&   Enemy::operator=(const Enemy &rhs)
 {

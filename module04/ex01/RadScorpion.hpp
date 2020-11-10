@@ -3,7 +3,7 @@
 
 #include "Enemy.hpp"
 
-class RadScorpion: Enemy
+class RadScorpion: public Enemy
 {
     private:
 

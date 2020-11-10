@@ -3,7 +3,7 @@
 
 #include "Enemy.hpp"
 
-class SuperMutant: Enemy
+class SuperMutant: public Enemy
 {
     private:
 
