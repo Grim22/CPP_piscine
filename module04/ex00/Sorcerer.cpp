@@ -7,10 +7,9 @@ name(name), title(title)
     std::cout << this->name << ", " << this->title << ", is born!" << std::endl;
 }
 
-Sorcerer::Sorcerer(const Sorcerer &copy)
+Sorcerer::Sorcerer(const Sorcerer &copy): name(copy.name), title(copy.title)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
 }
 
 Sorcerer::~Sorcerer(void)

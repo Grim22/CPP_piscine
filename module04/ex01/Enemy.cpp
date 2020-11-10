@@ -8,10 +8,10 @@ Enemy::Enemy(int hp, std::string const & type):
 hp(hp), type(type)
 {}
 
-Enemy::Enemy(const Enemy &copy)
+Enemy::Enemy(const Enemy &copy):
+hp(copy.hp), type(copy.type)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
 }
 
 Enemy::~Enemy(void)

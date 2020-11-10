@@ -9,10 +9,10 @@ name(name), damage(damage), apcost(apcost)
 AWeapon::AWeapon(void):
 name(""), damage(0), apcost(0){}
 
-AWeapon::AWeapon(const AWeapon &copy)
+AWeapon::AWeapon(const AWeapon &copy):
+name(copy.name), damage(copy.damage), apcost(copy.apcost)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
 }
 
 AWeapon::~AWeapon(void)

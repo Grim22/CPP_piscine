@@ -6,10 +6,9 @@ Victim::Victim(const std::string &name): name(name)
     std::cout << "Some random victim called " << this->name << " just appeared!" << std::endl;
 }
 
-Victim::Victim(const Victim &copy)
+Victim::Victim(const Victim &copy): name(copy.name)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
 }
 
 Victim::~Victim(void)
