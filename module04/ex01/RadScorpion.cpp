@@ -16,7 +16,7 @@ RadScorpion::~RadScorpion(void)
 
 RadScorpion&   RadScorpion::operator=(const RadScorpion &rhs)
 {
-    std::cout << "SM Assignement operator called" << std::endl;
+    // std::cout << "SM Assignement operator called" << std::endl;
     this->Enemy::operator=(rhs);
     return(*this);
 }

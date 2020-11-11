@@ -21,7 +21,7 @@ void SuperMutant::takeDamage(int damage)
 
 SuperMutant&   SuperMutant::operator=(const SuperMutant &rhs)
 {
-    std::cout << "SM Assignement operator called" << std::endl;
+    // std::cout << "SM Assignement operator called" << std::endl;
     this->Enemy::operator=(rhs);
     return(*this);
 }

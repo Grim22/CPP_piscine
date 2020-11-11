@@ -4,7 +4,7 @@
 AWeapon::AWeapon(std::string const & name, int apcost, int damage):
 name(name), damage(damage), apcost(apcost)
 {
-    std::cout << "AWeapon called" << std::endl;
+    // std::cout << "AWeapon called" << std::endl;
 }
 AWeapon::AWeapon(void):
 name(""), damage(0), apcost(0){}
@@ -12,17 +12,17 @@ name(""), damage(0), apcost(0){}
 AWeapon::AWeapon(const AWeapon &copy):
 name(copy.name), damage(copy.damage), apcost(copy.apcost)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
 }
 
 AWeapon::~AWeapon(void)
 {
-    std::cout << "AWeapon Destructor called" << std::endl;
+    // std::cout << "AWeapon Destructor called" << std::endl;
 }
 
 AWeapon&   AWeapon::operator=(const AWeapon &rhs)
 {
-    std::cout << "AWeapon Assignement operator called" << std::endl;
+    // std::cout << "AWeapon Assignement operator called" << std::endl;
     this->name = rhs.name;
     this->damage = rhs.damage;
     this->apcost = rhs.apcost;

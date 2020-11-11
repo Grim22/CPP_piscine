@@ -20,4 +20,6 @@ class Enemy
         Enemy&  operator=(const Enemy &copy);
 };
 
+std::ostream & operator<<(std::ostream &o, const Enemy &rhs);
+
 #endif

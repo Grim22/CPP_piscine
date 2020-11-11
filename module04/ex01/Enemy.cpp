@@ -11,12 +11,12 @@ hp(hp), type(type)
 Enemy::Enemy(const Enemy &copy):
 hp(copy.hp), type(copy.type)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
 }
 
 Enemy::~Enemy(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 int Enemy::getHP() const
@@ -37,15 +37,21 @@ void Enemy::takeDamage(int damage)
     if (this->hp < damage)
         taken = this->hp;
     this->hp -= taken;
-    if (this->hp == 0)
-        std::cout << this->type << "is dead !" << std::endl;
-    else
-        std::cout << this->type << " has " << this->hp << " HP remaining" << std::endl;
+    // if (this->hp == 0)
+    //     std::cout << this->type << " is dead !" << std::endl;
+    // else
+    //     std::cout << this->type << " has " << this->hp << " HP remaining" << std::endl;
 }
 Enemy&   Enemy::operator=(const Enemy &rhs)
 {
-    std::cout << "E Assignement operator called" << std::endl;
+    // std::cout << "E Assignement operator called" << std::endl;
     this->hp = rhs.hp;
     this->type = rhs.type;
     return(*this);
+}
+
+std::ostream & operator<<(std::ostream &o, const Enemy &rhs)
+{
+    o << rhs.gettype() << " has " <<  rhs.getHP() << " HP remaining" << std::endl;
+    return o;
 }

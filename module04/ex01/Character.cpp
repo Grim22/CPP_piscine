@@ -3,18 +3,18 @@
 
 Character::Character(void): name(""), ap_num(0), weapon(NULL)
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 Character::Character(std::string const & name): name(name), ap_num(40), weapon(NULL)
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 Character::Character(const Character &copy):
 name(copy.name), ap_num(copy.ap_num), weapon(copy.weapon)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
 }
 
 const AWeapon * Character::getWeapon() const
@@ -34,7 +34,7 @@ int Character::getAp() const
 
 Character::~Character(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 void Character::recoverAP()
@@ -49,6 +49,8 @@ void Character::recoverAP()
 void Character::equip(AWeapon* weapon)
 {
     this->weapon = weapon;
+    if (weapon)
+        std::cout << weapon->getName() << " equiped" << std::endl;
 }
 
 void Character::attack(Enemy* enemy)
