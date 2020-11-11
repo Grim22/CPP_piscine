@@ -37,10 +37,6 @@ void Enemy::takeDamage(int damage)
     if (this->hp < damage)
         taken = this->hp;
     this->hp -= taken;
-    // if (this->hp == 0)
-    //     std::cout << this->type << " is dead !" << std::endl;
-    // else
-    //     std::cout << this->type << " has " << this->hp << " HP remaining" << std::endl;
 }
 Enemy&   Enemy::operator=(const Enemy &rhs)
 {
