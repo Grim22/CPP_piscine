@@ -5,7 +5,7 @@
 
 class Peon: public Victim{
     public:
-    Peon(const std::string &name);
+    Peon(const std::string &name = "unknown");
     Peon(const Peon &copy);
     virtual ~Peon(void);
     Peon&  operator=(const Peon &copy);
