@@ -11,32 +11,46 @@ Squad::Squad(const Squad &copy)
     this->count = copy.count;
     this->tab = new ISpaceMarine*[copy.count];
     for (int i = 0; i < copy.count; i++)
-        this->tab[i] = copy.tab[i];
+        this->tab[i] = copy.tab[i]->clone();
 }
 
 Squad::~Squad(void)
 {
     // std::cout << "Destructor called" << std::endl;
     for (int i = 0; i < this->count; i++)
+    {
         delete this->tab[i];
-    delete [] this->tab; 
+        this->tab[i] = NULL;
+    }
+    delete [] this->tab;
+    // std::cout << "Squad deleted" << std::endl;
 }
 
 Squad&   Squad::operator=(const Squad &rhs)
 {
-    // std::cout << "Assignement operator called" << std::endl;
+    // std::cout << "Squad Assignement operator called" << std::endl;
 
     // Upon assignation, if there was any unit in the Squad before, they must be destroyed before
     // being replaced. You can assume every unit will be created with new
     for (int i = 0; i < this->count; i++)
+    {
         delete this->tab[i];
+        this->tab[i] = NULL;
+    }
     delete [] this->tab;
 
     this->count = rhs.count;
-
-    this->tab = new ISpaceMarine*[rhs.count];
+    
+    // Upon copy construction or assignation of a Squad, the copy must be deep
+    // we allocate a new pointer this->tab[], then copy the content pointed
+    if (rhs.count)
+        this->tab = new ISpaceMarine*[rhs.count];
     for (int i = 0; i < rhs.count; i++)
-        this->tab[i] = rhs.tab[i];
+    {
+        // we need to make a deep copy on the content pointed:
+        // "this->tab[i] = rhs.tab[i]" would result in both squads pointing to the same units: when one squad is deleted, its unit are deleted too, so the copy of the squad gets impacted
+        this->tab[i] = rhs.tab[i]->clone();
+    }
 
     return(*this);
 }

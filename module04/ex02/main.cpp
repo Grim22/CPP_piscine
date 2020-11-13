@@ -16,7 +16,22 @@ int main()
     cur->rangedAttack();
     cur->meleeAttack();
     }
-    delete vlc;
+    delete vlc; // frees vlc and then calls destructor on Squad object
+    // no need to call delete on ISpaceMarine* bob and jim, as they are destroyed along with the squad (cf squad destructor)
+    // be careful: bob and jim now point to deleted objects ! we should set them to NULL to avoid missusage
+
+    ISpaceMarine* patricia = new TacticalMarine;
+    ISpaceMarine* angela = new AssaultTerminator;
+    Squad pat;
+    pat.push(patricia);
+    pat.push(angela);
+    pat.push(NULL); // cant add NULL
+    pat.push(patricia); // cant add duplicate
+    Squad other;
+    other = pat; // assignation
+    Squad last(other); // copy
+    
+    std::cout << "----" << std::endl;
 
     return 0;
 }
