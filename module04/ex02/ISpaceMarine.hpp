@@ -6,8 +6,6 @@
 
 class ISpaceMarine
 {
-    private:
-
     public:
         virtual ~ISpaceMarine() {};
         virtual ISpaceMarine* clone() const = 0;

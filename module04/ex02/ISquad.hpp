@@ -8,8 +8,6 @@
 
 class ISquad
 {
-    private:
-
     public:
         // doesnt need any constructor, as it cant be instanciated
         virtual ~ISquad(void) {};

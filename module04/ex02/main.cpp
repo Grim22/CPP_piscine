@@ -19,6 +19,8 @@ int main()
     delete vlc; // frees vlc and then calls destructor on Squad object
     // no need to call delete on ISpaceMarine* bob and jim, as they are destroyed along with the squad (cf squad destructor)
     // be careful: bob and jim now point to deleted objects ! we should set them to NULL to avoid missusage
+    jim = NULL;
+    bob = NULL;
 
     ISpaceMarine* patricia = new TacticalMarine;
     ISpaceMarine* angela = new AssaultTerminator;
