@@ -9,7 +9,7 @@ AssaultTerminator::AssaultTerminator(void)
 AssaultTerminator::AssaultTerminator(const AssaultTerminator &copy)
 {
     (void)copy;
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "AT Copy constructor called" << std::endl;
 }
 
 AssaultTerminator::~AssaultTerminator(void)
@@ -21,7 +21,7 @@ AssaultTerminator::~AssaultTerminator(void)
 AssaultTerminator&   AssaultTerminator::operator=(const AssaultTerminator &rhs)
 {
     (void)rhs;
-    std::cout << "Assignement operator called" << std::endl;
+    // std::cout << "Assignement operator called" << std::endl;
     return(*this);
 }
 

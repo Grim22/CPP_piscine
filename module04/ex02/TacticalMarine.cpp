@@ -9,7 +9,7 @@ TacticalMarine::TacticalMarine(void)
 TacticalMarine::TacticalMarine(const TacticalMarine &copy)
 {
     (void)copy;
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "TM Copy constructor called" << std::endl;
 }
 
 TacticalMarine::~TacticalMarine(void)
@@ -21,7 +21,7 @@ TacticalMarine::~TacticalMarine(void)
 TacticalMarine&   TacticalMarine::operator=(const TacticalMarine &rhs)
 {
     (void)rhs;
-    std::cout << "Assignement operator called" << std::endl;
+    // std::cout << "Assignement operator called" << std::endl;
     return(*this);
 }
 

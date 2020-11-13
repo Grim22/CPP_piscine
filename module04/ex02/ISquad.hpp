@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "ISpaceMarine.hpp" // needed for when using delete on pointers to ISpaceMarine objects (error message: incomplete type...)
+#include "ISpaceMarine.hpp" //"complete type" needed for when using delete on pointers to ISpaceMarine objects (error message: incomplete type...)
 
 class ISquad
 {
