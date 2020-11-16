@@ -88,7 +88,7 @@ int Squad::push(ISpaceMarine* elem)
     ISpaceMarine **new_tab = new ISpaceMarine*[this->count + 1];
     for (int i = 0; i < this->count; i++)
         new_tab[i] = this->tab[i];
-    new_tab[this->count] = elem;
+    new_tab[this->count] = elem; // we use the pointer given as argument (not a copy with elem.clone()): else we should have deleted the pointer after sending it to the function, which is not the case in main (bob and jim are not deleted)
     delete [] this->tab;
     this->tab = new_tab;
     this->count++;

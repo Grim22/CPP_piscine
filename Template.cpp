@@ -6,6 +6,11 @@ ${Class}::${Class}(void)
     std::cout << "Default constructor called" << std::endl;
 }
 
+${Class}::${Class}(/* Param */)
+{
+    std::cout << "Param constructor called" << std::endl;
+}
+
 ${Class}::${Class}(const ${Class} &copy):
 /* assignements */
 {
