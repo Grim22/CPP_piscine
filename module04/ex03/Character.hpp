@@ -21,10 +21,10 @@ class Character: public ICharacter
         virtual ~Character(void);
         Character&  operator=(const Character &copy);
         
-        virtual std::string const & getName() const = 0;
-        virtual void equip(AMateria* m) = 0;
-        virtual void unequip(int idx) = 0;
-        virtual void use(int idx, ICharacter& target) = 0;
+        virtual std::string const & getName() const;
+        virtual void equip(AMateria* m);
+        virtual void unequip(int idx);
+        virtual void use(int idx, ICharacter& target);
 };
 
 std::ostream & operator<<(std::ostream &o, const Character &rhs);

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "ICharacter.hpp";
+class ICharacter; // complete type not needed. Major problem of reciprocal inclusion if #include "ICharacter.hpp" instead
 
 class AMateria
 {

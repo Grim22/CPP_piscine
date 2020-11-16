@@ -2,13 +2,13 @@
 #include <iostream>
 
 Character::Character(void):
-inventory({NULL, NULL, NULL, NULL}), materia_num(0), name("unset")
+inventory(), materia_num(0), name("unset") // "In order to set an array of pointers to nulls in constructor initializer list, you can use the () initializer"
 {
     std::cout << "Default constructor called" << std::endl;
 }
 
 Character::Character(const std::string & name):
-inventory({NULL, NULL, NULL, NULL}), materia_num(0), name(name)
+inventory(), materia_num(0), name(name) // "In order to set an array of pointers to nulls in constructor initializer list, you can use the () initializer"
 {
     std::cout << "Param constructor called" << std::endl;
 }
@@ -17,14 +17,14 @@ Character::Character(const Character &copy):
 materia_num(copy.materia_num), name(copy.name)
 {
     std::cout << "Copy constructor called" << std::endl;
-    for (size_t i = 0; i < copy.materia_num; i++)
+    for (int i = 0; i < copy.materia_num; i++)
         this->inventory[i] = copy.inventory[i]->clone();
 }
 
 Character::~Character(void)
 {
     std::cout << "Destructor called" << std::endl;
-    for (size_t i = 0; i < this->materia_num; i++)
+    for (int i = 0; i < this->materia_num; i++)
     {
         delete this->inventory[i];
         this->inventory[i] = NULL;
@@ -35,13 +35,13 @@ Character&   Character::operator=(const Character &rhs)
 {
     // Assignation of a Character must be deep, of course. The old Materia of a Character must be deleted.
     std::cout << "Assignement operator called" << std::endl;
-    for (size_t i = 0; i < this->materia_num; i++)
+    for (int i = 0; i < this->materia_num; i++)
     {
         delete this->inventory[i];
         this->inventory[i] = NULL;
     }
 
-    for (size_t i = 0; i < rhs.materia_num ; i++)
+    for (int i = 0; i < rhs.materia_num ; i++)
         this->inventory[i]  = rhs.inventory[i];
     this->materia_num = rhs.materia_num;
     this->name = rhs.name;
@@ -85,6 +85,9 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
     if (idx >= this->materia_num || idx < 0)
+    {
+        std::cout << "cant perform use" << std::endl;
         return;
+    }
     this->inventory[idx]->use(target);
 }
