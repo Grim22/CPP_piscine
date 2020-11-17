@@ -1,5 +1,6 @@
 #include "Ice.hpp"
 #include <iostream>
+#include "ICharacter.hpp"
 
 Ice::Ice(void): AMateria("ice")
 {
@@ -18,7 +19,7 @@ Ice::~Ice(void)
 
 Ice&   Ice::operator=(const Ice &rhs)
 {
-    std::cout << "Assignement operator called" << std::endl;
+    // std::cout << "Assignement operator called" << std::endl;
     this->AMateria::operator=(rhs);
     return(*this);
 }

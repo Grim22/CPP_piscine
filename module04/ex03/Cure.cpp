@@ -1,5 +1,6 @@
 #include "Cure.hpp"
 #include <iostream>
+#include "ICharacter.hpp"
 
 Cure::Cure(void): AMateria("cure")
 {
@@ -18,7 +19,7 @@ Cure::~Cure(void)
 
 Cure&   Cure::operator=(const Cure &rhs)
 {
-    std::cout << "Assignement operator called" << std::endl;
+    // std::cout << "Assignement operator called" << std::endl;
     this->AMateria::operator=(rhs);
     return(*this);
 }

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-class ICharacter; // complete type not needed. Major problem of reciprocal inclusion if #include "ICharacter.hpp" instead
+class ICharacter; // complete type not needed. Major problem of recursive inclusion if #include "ICharacter.hpp" instead
 
 class AMateria
 {
@@ -24,7 +24,5 @@ class AMateria
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
 };
-
-std::ostream & operator<<(std::ostream &o, const AMateria &rhs);
 
 #endif

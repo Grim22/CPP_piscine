@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-
 #include "ICharacter.hpp"
 
 class Character: public ICharacter
@@ -26,7 +25,5 @@ class Character: public ICharacter
         virtual void unequip(int idx);
         virtual void use(int idx, ICharacter& target);
 };
-
-std::ostream & operator<<(std::ostream &o, const Character &rhs);
 
 #endif

@@ -1,29 +1,30 @@
 #include "Character.hpp"
 #include <iostream>
+#include "AMateria.hpp"
 
 Character::Character(void):
 inventory(), materia_num(0), name("unset") // "In order to set an array of pointers to nulls in constructor initializer list, you can use the () initializer"
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 Character::Character(const std::string & name):
 inventory(), materia_num(0), name(name) // "In order to set an array of pointers to nulls in constructor initializer list, you can use the () initializer"
 {
-    std::cout << "Param constructor called" << std::endl;
+    // std::cout << "Param constructor called" << std::endl;
 }
 
 Character::Character(const Character &copy):
 materia_num(copy.materia_num), name(copy.name)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     for (int i = 0; i < copy.materia_num; i++)
         this->inventory[i] = copy.inventory[i]->clone();
 }
 
 Character::~Character(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
     for (int i = 0; i < this->materia_num; i++)
     {
         delete this->inventory[i];
@@ -34,7 +35,6 @@ Character::~Character(void)
 Character&   Character::operator=(const Character &rhs)
 {
     // Assignation of a Character must be deep, of course. The old Materia of a Character must be deleted.
-    std::cout << "Assignement operator called" << std::endl;
     for (int i = 0; i < this->materia_num; i++)
     {
         delete this->inventory[i];
@@ -42,18 +42,12 @@ Character&   Character::operator=(const Character &rhs)
     }
 
     for (int i = 0; i < rhs.materia_num ; i++)
-        this->inventory[i]  = rhs.inventory[i];
+        this->inventory[i]  = rhs.inventory[i]->clone(); // clone needed for the copy to be deep ! (else segfault when pointer to materias are destroyed, as the same pointer is deleted twice)
     this->materia_num = rhs.materia_num;
     this->name = rhs.name;
     
     return(*this);
 }
-
-// std::ostream & operator<<(std::ostream &o, const Character &rhs)
-// {
-//     o << /*text*/ << std::endl;
-//     return o;
-// }
 
 std::string const & Character::getName() const
 {
