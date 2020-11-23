@@ -48,7 +48,8 @@ int main()
     me->attack(b);
     me->attack(b);
     me->attack(b);
-    // b deleted 
+    // b deleted
+    b = NULL; // we set it manually to NULL, to avoid missusage...
     std::cout << "----" << std::endl;
     
     // test equip & attack on SuperMutant with PowerFist
