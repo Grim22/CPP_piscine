@@ -70,6 +70,8 @@ void Character::attack(Enemy* enemy)
     this->weapon->attack();
     this->ap_num -= this->weapon->getAPCost();
     enemy->takeDamage(this->weapon->getDammage());
+    if (enemy->getHP() <= 0)
+        delete enemy;
 }
 
 Character&   Character::operator=(const Character &rhs)

@@ -7,14 +7,24 @@
 
 int main()
 {
-    // PlasmaRifle rif;
-    // PlasmaRifle rifi;
-    // rif = rifi;
-    // PowerFist pow;
-    // AWeapon *ptr_base = &pow;
-    // AWeapon *ptr_base1 = &rif;
-    // ptr_base->attack();
-    // ptr_base1->attack();
+    /* MAIN GIVEN
+    Character* me = new Character("me");
+    std::cout << *me;
+    Enemy* b = new RadScorpion();
+    AWeapon* pr = new PlasmaRifle();
+    AWeapon* pf = new PowerFist();
+    me->equip(pr);
+    std::cout << *me;
+    me->equip(pf);
+    me->attack(b);
+    std::cout << *me;
+    me->equip(pr);
+    std::cout << *me;
+    me->attack(b);
+    std::cout << *me;
+    me->attack(b);
+    std::cout << *me;
+    */
 
     Character* me = new Character("me");
     Enemy* c = new SuperMutant;
@@ -35,7 +45,10 @@ int main()
     me->attack(b);
     std::cout << *me;
     std::cout << *b;
-    
+    me->attack(b);
+    me->attack(b);
+    me->attack(b);
+    // b deleted 
     std::cout << "----" << std::endl;
     
     // test equip & attack on SuperMutant with PowerFist
@@ -45,9 +58,6 @@ int main()
     me->attack(c);
     std::cout << *me;
     std::cout << *c;
-    me->attack(c);
-    me->attack(c);
-    me->attack(c);
     me->attack(c);
     me->attack(c);
     std::cout << *me;
@@ -75,7 +85,6 @@ int main()
     
     delete me;
     delete c;
-    delete b;
     delete pr;
     delete pf;
     return 0;
