@@ -32,20 +32,24 @@ int main()
     other_other_cure = other_cure;
     std::cout << other_other_cure.getXP() << std::endl;
 
-    // test copy and assignement of Character
+    // test copy / assignement, equip / unequip of Character
     std::cout << "---" << std::endl;
     Character anton;
     anton.equip(src->createMateria("cure"));
     anton.equip(src->createMateria("ice"));
     Character peter(anton);
-    peter.use(0, *bob);
-    peter.use(1, *bob);
-    peter.use(2, *bob);
-    // peter.unequip(1);
+    peter.use(0, *bob); // cure
+    peter.use(1, *bob); // ice
+    peter.use(2, *bob); // nothing equipped at index 2 -> can't use
+    peter.unequip(0); // cure unequiped. only one materia left: ice. Index of ice is switched to 0
     // peter.equip(src->createMateria("cure"));
-    // peter.use(1, *bob);
-    // anton = peter;
-    // anton.use(1, *bob);
+    peter.use(0, *bob); // now ice, as cure was unequiped
+    peter.use(1, *bob); // nothing left as ice was moved to index0 -> cant use
+    peter.equip(src->createMateria("cure"));
+    peter.use(1, *bob); // cure
+    peter.use(44, *bob); // invalid index
+    anton = peter;
+    anton.use(0, *bob);
 
     delete bob;
     delete me;

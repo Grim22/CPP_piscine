@@ -72,7 +72,10 @@ void Character::unequip(int idx)
     if (idx >= this->materia_num || idx < 0)
         return;
     delete this->inventory[idx]; // frees the pointer to materia, does not delete the object itself
-    this->inventory[idx] = NULL;
+    // shift weapons to fill the blank ! (to respect the fact that weapons are equiped "in slots 0 to 3 in this order")
+    for (int i = idx; i < this->materia_num - 1 ; i++)
+        this->inventory[idx] = this->inventory[idx + 1];
+    this->inventory[materia_num - 1] = NULL;
     this->materia_num--;
 }
 
