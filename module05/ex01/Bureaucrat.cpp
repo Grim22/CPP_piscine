@@ -1,12 +1,10 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat(void)
-{
-    std::cout << "Default constructor called" << std::endl;
-}
+#include "Form.hpp"
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade): name(name), grade(grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) throw(GradeTooHighException, GradeTooLowException):
+name(name), grade(grade)
 {
     if (grade > 150)
         throw GradeTooLowException();
@@ -47,7 +45,7 @@ int Bureaucrat::getGrade() const
     return this->grade;
 }
 
-void Bureaucrat::incGrade()
+void Bureaucrat::incGrade() throw(GradeTooHighException)
 {
     if (this->grade == 1)
         throw Bureaucrat::GradeTooHighException();
@@ -55,7 +53,7 @@ void Bureaucrat::incGrade()
         this->grade--;
 }
 
-void Bureaucrat::decGrade()
+void Bureaucrat::decGrade() throw(GradeTooLowException)
 {
     if (this->grade == 150)
         throw Bureaucrat::GradeTooLowException();
@@ -71,4 +69,15 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade Too Low Exception caught";
+}
+
+void Bureaucrat::signForm(Form& form) const
+{
+    if (form.getIsSigned() == true)
+        std::cout << this->getName() << " cannot sign " << form.getName() << " because form is already signed" << std::endl;
+    else if (this->grade > form.getGradeSign())
+        std::cout << this->getName() << " cannot sign " << form.getName() << " because his grade is too low" << std::endl;
+    else
+        std::cout << this->getName() << " signs " << form.getName() << std::endl;
+    form.beSigned(*this);
 }
