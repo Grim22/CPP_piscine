@@ -3,14 +3,15 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 
 class Bureaucrat
 {
     private:
         const std::string name;
         int grade;
-    public:
         Bureaucrat(void);
+    public:
         Bureaucrat(const std::string &name, int grade);
         Bureaucrat(const Bureaucrat &copy);
         virtual ~Bureaucrat(void);

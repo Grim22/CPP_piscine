@@ -1,11 +1,6 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat(void)
-{
-    std::cout << "Default constructor called" << std::endl;
-}
-
 Bureaucrat::Bureaucrat(const std::string &name, int grade): name(name), grade(grade)
 {
     if (grade > 150)
