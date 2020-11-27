@@ -81,3 +81,14 @@ void Bureaucrat::signForm(Form& form) const
         std::cout << this->getName() << " signs " << form.getName() << std::endl;
     form.beSigned(*this);
 }
+
+void Bureaucrat::executeForm(Form const &form) const
+{
+    if (form.getIsSigned() == false)
+        std::cout << this->getName() << " cannot execute " << form.getName() << " because it is not signed" << std::endl;
+    else if (this->grade > form.getGradeSign())
+        std::cout << this->getName() << " cannot execute " << form.getName() << " because his grade is too low" << std::endl;
+    else
+        std::cout << this->getName() << " executes " << form.getName() << std::endl;
+    form.execute(*this); // call to derived-class::execute (polymorphism also works with references !)
+}

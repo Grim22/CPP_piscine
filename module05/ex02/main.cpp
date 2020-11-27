@@ -1,11 +1,14 @@
-#include "Form.hpp"
+#include "ShruberryCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
 int main()
 {
     try
     {
-        Form A("A-form", 0, 2);
+        Bureaucrat Mike("mike", 135);
+        ShruberryCreationForm s_form("big_man");
+        //std::cout << s_form;
+        Mike.executeForm(s_form); // can't because not signed
     }
     catch (std::exception &e)
     {
@@ -13,35 +16,33 @@ int main()
     }
 
     std::cout << "-----" << std::endl;
-
+    
     try
     {
-        Form B("B", 50, 40);
-        Bureaucrat Al("Albert", 68);
-        std::cout << B;
-        Al.signForm(B); // can't sign
-        std::cout << B;
+        Bureaucrat Mike("mike", 140);
+        ShruberryCreationForm s_form("big_man");
+        //std::cout << s_form;
+        Mike.signForm(s_form);
+        Mike.executeForm(s_form); // can't because grade to low
     }
-    catch(const std::exception& e)
+    catch (std::exception &e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
-    
+
     std::cout << "-----" << std::endl;
     
     try
     {
-        Form B("B", 50, 40);
-        Bureaucrat Al("Albert", 48);
-        std::cout << B;
-        Al.signForm(B); // can sign
-        std::cout << B;
-        Al.signForm(B);
-        std::cout << B;
+        Bureaucrat Mike("mike", 135);
+        ShruberryCreationForm s_form("big_man");
+        Mike.signForm(s_form);
+        Mike.executeForm(s_form); // can't because grade to low
     }
-    catch(const std::exception& e)
+    catch (std::exception &e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
-    
+
+    std::cout << "-----" << std::endl;
 }

@@ -30,6 +30,7 @@ class Bureaucrat
         const std::string &getName() const;
         int getGrade() const;
         void signForm(Form&) const;
+        void executeForm(Form const &form) const;
         void incGrade() throw(GradeTooHighException);
         void decGrade() throw(GradeTooLowException);
 };
