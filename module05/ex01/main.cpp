@@ -5,7 +5,7 @@ int main()
 {
     try
     {
-        Form A("A-form", 0, 2);
+        Form A("A-form", 0, 2); // 0 is too high
     }
     catch (std::exception &e)
     {
@@ -19,7 +19,7 @@ int main()
         Form B("B", 50, 40);
         Bureaucrat Al("Albert", 68);
         std::cout << B;
-        Al.signForm(B); // can't sign
+        Al.signForm(B); // can't sign (grade too low). Will send exception. (Destructor if B and AL is called first)
         std::cout << B;
     }
     catch(const std::exception& e)
@@ -36,7 +36,7 @@ int main()
         std::cout << B;
         Al.signForm(B); // can sign
         std::cout << B;
-        Al.signForm(B);
+        Al.signForm(B); // can't sign (already signed)
         std::cout << B;
     }
     catch(const std::exception& e)

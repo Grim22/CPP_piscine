@@ -20,7 +20,7 @@ name(copy.name), grade(copy.grade)
 
 Bureaucrat::~Bureaucrat(void)
 {
-    //std::cout << "Destructor called" << std::endl;
+    std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
 Bureaucrat&   Bureaucrat::operator=(const Bureaucrat &rhs)
@@ -79,5 +79,5 @@ void Bureaucrat::signForm(Form& form) const
         std::cout << this->getName() << " cannot sign " << form.getName() << " because his grade is too low" << std::endl;
     else
         std::cout << this->getName() << " signs " << form.getName() << std::endl;
-    form.beSigned(*this);
+    form.beSigned(*this); // throws exeptions
 }

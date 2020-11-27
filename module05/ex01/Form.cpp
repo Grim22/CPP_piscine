@@ -20,7 +20,7 @@ name(copy.name), is_signed(copy.is_signed), grade_sign(copy.grade_sign), grade_e
 
 Form::~Form(void)
 {
-    //std::cout << "Destructor called" << std::endl;
+    std::cout << "Form Destructor called" << std::endl;
 }
 
 Form&   Form::operator=(const Form &rhs)
@@ -51,6 +51,11 @@ const char *Form::GradeTooLowException::what() const throw()
     return ("Form::GradeTooLow exception found");
 }
 
+const char *Form::AlreadySigned::what() const throw()
+{
+    return ("Form::AlreadySigned exception found");
+}
+
 int Form::getGradeSign() const
 {
     return this->grade_sign;
@@ -71,8 +76,10 @@ const std::string &Form::getName() const
     return this->name;
 }
 
-void Form::beSigned(const Bureaucrat &bureau) throw(GradeTooLowException)
+void Form::beSigned(const Bureaucrat &bureau) throw(GradeTooLowException, AlreadySigned)
 {
+    if (this->is_signed == true)
+        throw AlreadySigned();
     if (bureau.getGrade() > this->grade_sign)
         throw GradeTooLowException();
     else

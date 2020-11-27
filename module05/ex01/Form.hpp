@@ -26,6 +26,10 @@ class Form
         {
             virtual const char *what() const throw();
         };
+        class AlreadySigned: public std::exception
+        {
+            virtual const char *what() const throw();
+        };
 
         Form(const std::string &name, int grade_sign, int grade_exec) throw(GradeTooHighException, GradeTooLowException);
         // throw(...) at the end is an optionnal "exception specification". 
@@ -44,7 +48,7 @@ class Form
         bool getIsSigned() const;
         const std::string &getName() const;
 
-        void beSigned(const Bureaucrat&) throw(GradeTooLowException);
+        void beSigned(const Bureaucrat&) throw(GradeTooLowException, AlreadySigned);
 };
 
 std::ostream & operator<<(std::ostream &o, const Form &rhs);
