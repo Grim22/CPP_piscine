@@ -25,16 +25,30 @@ ShruberryCreationForm&   ShruberryCreationForm::operator=(const ShruberryCreatio
     return(*this);
 }
 
+const std::string tree = "\
+              v .   ._, |_  .,\n\
+           `-._\\/  .  \\ /    |/_\n\
+               \\\\  _\\, y | \\//\n\
+         _\\_.___\\\\, \\\\/ -.\\||\n\
+           `7-,--.`._||  / / ,\n\
+           /'     `-. `./ / |/_.'\n\
+                     |    |//\n\
+                     |_    /\n\
+                     |-   |\n\
+                     |   =|\n\
+                     |    |\n\
+--------------------/ ,  . \\--------._\n\
+";
+
 void ShruberryCreationForm::execute(Bureaucrat const & executor) const throw(std::ios_base::failure, GradeTooLowException, NotSignedException)
 {
     this->Form::execute(executor); // throws exceptions
     
-    std::stringstream file_name;
-    file_name << this->getTarget() << "_shrubbery";
+    std::string const file_name = this->getTarget() + "_shruberry";
     
     std::ofstream file;
     file.exceptions(std::ofstream::failbit); // if failbit is set, make object throw an exception (of type ios_base::failure, which inherits from std::exception)
-    file.open(file_name.str().c_str(), std::ofstream::trunc);
-    
-    file << "beautiful ascii trees";
+    file.open(file_name.c_str(), std::ofstream::trunc);
+    file << tree;
+    file.close();
 }
