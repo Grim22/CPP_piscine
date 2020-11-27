@@ -91,7 +91,7 @@ void Form::beSigned(const Bureaucrat &bureau) throw(GradeTooLowException)
         this->is_signed = true;
 }
 
-void Form::execute(const Bureaucrat& executor) const throw(NotSignedException, GradeTooLowException)
+void Form::execute(const Bureaucrat& executor) const throw(NotSignedException, GradeTooLowException, std::ios_base::failure)
 {
     if (executor.getGrade() > this->grade_exec)
         throw GradeTooLowException();

@@ -1,5 +1,6 @@
 #include "ShruberryCreationForm.hpp"
 #include "Bureaucrat.hpp"
+#include <fstream>
 
 int main()
 {

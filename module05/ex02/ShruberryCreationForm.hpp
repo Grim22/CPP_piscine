@@ -16,7 +16,7 @@ class ShruberryCreationForm: public Form
         virtual ~ShruberryCreationForm(void);
         ShruberryCreationForm&  operator=(const ShruberryCreationForm &copy);
         
-        virtual void execute(Bureaucrat const & executor) const throw(GradeTooLowException, NotSignedException);
+        virtual void execute(Bureaucrat const & executor) const throw(std::ios_base::failure, NotSignedException, GradeTooLowException);
 };
 
 #endif

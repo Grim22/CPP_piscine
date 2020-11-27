@@ -44,7 +44,7 @@ class Form
         const std::string &getTarget() const;
 
         void beSigned(const Bureaucrat&) throw(GradeTooLowException);
-        virtual void execute(Bureaucrat const & executor) const throw(GradeTooLowException, NotSignedException) = 0; 
+        virtual void execute(Bureaucrat const & executor) const throw(GradeTooLowException, NotSignedException, std::ios_base::failure) = 0; 
         // declared '= 0' to force implementation at derived class level (the class must be abstract, acording to the subject), but still defined in the CPP to provide a common behaviour
 };
 

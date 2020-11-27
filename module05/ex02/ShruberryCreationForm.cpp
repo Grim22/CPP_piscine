@@ -25,12 +25,16 @@ ShruberryCreationForm&   ShruberryCreationForm::operator=(const ShruberryCreatio
     return(*this);
 }
 
-void ShruberryCreationForm::execute(Bureaucrat const & executor) const throw(GradeTooLowException, NotSignedException)
+void ShruberryCreationForm::execute(Bureaucrat const & executor) const throw(std::ios_base::failure, GradeTooLowException, NotSignedException)
 {
     this->Form::execute(executor); // throws exceptions
+    
     std::stringstream file_name;
-    std::ofstream file;
     file_name << this->getTarget() << "_shrubbery";
+    
+    std::ofstream file;
+    file.exceptions(std::ofstream::failbit); // if failbit is set, make object throw an exception (of type ios_base::failure, which inherits from std::exception)
     file.open(file_name.str().c_str(), std::ofstream::trunc);
-    file << "message"; // ASCII threes
+    
+    file << "beautiful ascii trees";
 }
