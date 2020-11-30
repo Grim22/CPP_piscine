@@ -1,20 +1,21 @@
 #include "Intern.hpp"
 #include <iostream>
 
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShruberryCreationForm.hpp"
+
+const std::string Intern::form_names[3] = {"shruberry creation", "robotomy request", "presidential pardon"};
+
 Intern::Intern(void)
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
-Intern::Intern(/* Param */)
+Intern::Intern(const Intern &copy)
 {
-    std::cout << "Param constructor called" << std::endl;
-}
-
-Intern::Intern(const Intern &copy):
-/* assignements */
-{
-    std::cout << "Copy constructor called" << std::endl;
+    (void)copy;
+    //std::cout << "Copy constructor called" << std::endl;
 }
 
 Intern::~Intern(void)
@@ -24,13 +25,43 @@ Intern::~Intern(void)
 
 Intern&   Intern::operator=(const Intern &rhs)
 {
-    std::cout << "Assignement operator called" << std::endl;
-    /*assignements*/
+    (void)rhs;
+    //std::cout << "Assignement operator called" << std::endl;
     return(*this);
 }
 
-std::ostream & operator<<(std::ostream &o, const Intern &rhs)
+Form *Intern::makeForm(const std::string &form_name, const std::string &target)
 {
-    o << /*text*/ << std::endl;
-    return o;
+    Form *intern(NULL);
+    Form* (Intern::*form_objs[3])(const std::string &target) = {&Intern::create_shrub, &Intern::create_rob, &Intern::create_pres};
+
+    for (size_t i = 0; i < 3; i++)
+    {
+        if (form_name == this->form_names[i])
+            intern = (this->*form_objs[i])(target);
+    }
+    if (intern == NULL)
+        throw FormTypeNotFoundException();
+    
+    return intern;
+}
+
+const char *Intern::FormTypeNotFoundException::what() const throw()
+{
+    return "Form Type Not Found Exception raised";
+}
+
+Form* Intern::create_shrub(const std::string &target)
+{
+    return new ShruberryCreationForm(target);
+}
+
+Form* Intern::create_rob(const std::string &target)
+{
+    return new RobotomyRequestForm(target);
+}
+
+Form* Intern::create_pres(const std::string &target)
+{
+    return new PresidentialPardonForm(target);
 }
