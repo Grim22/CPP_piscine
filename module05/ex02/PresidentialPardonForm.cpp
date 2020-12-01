@@ -25,7 +25,7 @@ PresidentialPardonForm&   PresidentialPardonForm::operator=(const PresidentialPa
     return(*this);
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const throw(std::ios_base::failure, GradeTooLowException, NotSignedException)
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const throw(GradeTooLowException, NotSignedException)
 {
     this->Form::execute(executor); // throws exceptions
     

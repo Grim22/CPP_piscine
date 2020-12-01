@@ -26,7 +26,7 @@ RobotomyRequestForm&   RobotomyRequestForm::operator=(const RobotomyRequestForm 
     return(*this);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const throw(std::ios_base::failure, GradeTooLowException, NotSignedException)
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const throw(GradeTooLowException, NotSignedException)
 {
     this->Form::execute(executor); // throws exceptions
     std::cout << "*******DRIIIIIILING NOISE*********" << std::endl;

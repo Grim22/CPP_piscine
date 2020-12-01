@@ -16,7 +16,7 @@ class PresidentialPardonForm: public Form
         virtual ~PresidentialPardonForm(void);
         PresidentialPardonForm&  operator=(const PresidentialPardonForm &copy);
         
-        virtual void execute(Bureaucrat const & executor) const throw(std::ios_base::failure, NotSignedException, GradeTooLowException);
+        virtual void execute(Bureaucrat const & executor) const throw(NotSignedException, GradeTooLowException);
 };
 
 #endif

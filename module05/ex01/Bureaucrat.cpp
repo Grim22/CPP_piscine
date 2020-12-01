@@ -15,12 +15,12 @@ name(name), grade(grade)
 Bureaucrat::Bureaucrat(const Bureaucrat &copy):
 name(copy.name), grade(copy.grade)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-    std::cout << "Bureaucrat Destructor called" << std::endl;
+    //std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
 Bureaucrat&   Bureaucrat::operator=(const Bureaucrat &rhs)

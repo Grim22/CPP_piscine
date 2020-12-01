@@ -10,7 +10,6 @@ int main()
     {
         Bureaucrat Mike("mike", 135);
         ShruberryCreationForm s_form("big_man");
-        //std::cout << s_form;
         Mike.executeForm(s_form); // can't because not signed
     }
     catch (std::exception &e)
@@ -24,7 +23,6 @@ int main()
     {
         Bureaucrat Mike("mike", 140);
         ShruberryCreationForm s_form("big_man");
-        //std::cout << s_form;
         Mike.signForm(s_form);
         Mike.executeForm(s_form); // can't because grade to low
     }
@@ -39,6 +37,7 @@ int main()
     {
         Bureaucrat Mike("mike", 1);
         ShruberryCreationForm s_form("big_man");
+        std::cout << s_form;
         PresidentialPardonForm p_form("Trump");
         std::cout << p_form;
         RobotomyRequestForm r_form("suzan");

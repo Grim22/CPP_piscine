@@ -16,7 +16,7 @@ class RobotomyRequestForm: public Form
         virtual ~RobotomyRequestForm(void);
         RobotomyRequestForm&  operator=(const RobotomyRequestForm &copy);
         
-        virtual void execute(Bureaucrat const & executor) const throw(std::ios_base::failure, NotSignedException, GradeTooLowException);
+        virtual void execute(Bureaucrat const & executor) const throw(NotSignedException, GradeTooLowException);
 };
 
 #endif

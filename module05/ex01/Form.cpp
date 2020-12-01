@@ -20,7 +20,7 @@ name(copy.name), is_signed(copy.is_signed), grade_sign(copy.grade_sign), grade_e
 
 Form::~Form(void)
 {
-    std::cout << "Form Destructor called" << std::endl;
+    //std::cout << "Form Destructor called" << std::endl;
 }
 
 Form&   Form::operator=(const Form &rhs)
