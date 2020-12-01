@@ -20,7 +20,7 @@ Intern::Intern(const Intern &copy)
 
 Intern::~Intern(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 Intern&   Intern::operator=(const Intern &rhs)
@@ -30,20 +30,19 @@ Intern&   Intern::operator=(const Intern &rhs)
     return(*this);
 }
 
-Form *Intern::makeForm(const std::string &form_name, const std::string &target)
+Form *Intern::makeForm(const std::string &form_name, const std::string &target) const
 {
-    Form *intern(NULL);
-    Form* (Intern::*form_objs[3])(const std::string &target) = {&Intern::create_shrub, &Intern::create_rob, &Intern::create_pres};
+    Form *form(NULL);
+    Form* (Intern::*form_objs[3])(const std::string &target) const = {&Intern::create_shrub, &Intern::create_rob, &Intern::create_pres};
 
     for (size_t i = 0; i < 3; i++)
     {
         if (form_name == this->form_names[i])
-            intern = (this->*form_objs[i])(target);
+            form = (this->*form_objs[i])(target);
     }
-    if (intern == NULL)
+    if (form == NULL)
         throw FormTypeNotFoundException();
-    
-    return intern;
+    return form;
 }
 
 const char *Intern::FormTypeNotFoundException::what() const throw()
@@ -51,17 +50,20 @@ const char *Intern::FormTypeNotFoundException::what() const throw()
     return "Form Type Not Found Exception raised";
 }
 
-Form* Intern::create_shrub(const std::string &target)
+Form* Intern::create_shrub(const std::string &target) const
 {
+    std::cout << "interns creates new Shrubberry Creation Form" << std::endl;
     return new ShruberryCreationForm(target);
 }
 
-Form* Intern::create_rob(const std::string &target)
+Form* Intern::create_rob(const std::string &target) const
 {
+    std::cout << "interns creates new Robotomy Request Form" << std::endl;
     return new RobotomyRequestForm(target);
 }
 
-Form* Intern::create_pres(const std::string &target)
+Form* Intern::create_pres(const std::string &target) const
 {
+    std::cout << "interns creates new Presidential Pardon Form" << std::endl;
     return new PresidentialPardonForm(target);
 }

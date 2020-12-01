@@ -20,7 +20,7 @@ Intern::Intern(const Intern &copy)
 
 Intern::~Intern(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 Intern&   Intern::operator=(const Intern &rhs)
@@ -30,10 +30,10 @@ Intern&   Intern::operator=(const Intern &rhs)
     return(*this);
 }
 
-Form *Intern::makeForm(const std::string &form_name, const std::string &target)
+Form *Intern::makeForm(const std::string &form_name, const std::string &target) const
 {
     Form *intern(NULL);
-    Form* (Intern::*form_objs[3])(const std::string &target) = {&Intern::create_shrub, &Intern::create_rob, &Intern::create_pres};
+    Form* (Intern::*form_objs[3])(const std::string &target) const = {&Intern::create_shrub, &Intern::create_rob, &Intern::create_pres};
 
     for (size_t i = 0; i < 3; i++)
     {
@@ -51,17 +51,17 @@ const char *Intern::FormTypeNotFoundException::what() const throw()
     return "Form Type Not Found Exception raised";
 }
 
-Form* Intern::create_shrub(const std::string &target)
+Form* Intern::create_shrub(const std::string &target) const
 {
     return new ShruberryCreationForm(target);
 }
 
-Form* Intern::create_rob(const std::string &target)
+Form* Intern::create_rob(const std::string &target) const
 {
     return new RobotomyRequestForm(target);
 }
 
-Form* Intern::create_pres(const std::string &target)
+Form* Intern::create_pres(const std::string &target) const
 {
     return new PresidentialPardonForm(target);
 }
