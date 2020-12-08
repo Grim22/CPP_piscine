@@ -1,10 +1,8 @@
-#include "typeinfo"
 #include "iostream"
-#include "cctype"
-#include "cstdlib"
-#include "sstream"
-#include "limits"
-#include "iomanip"
+#include "cctype" // is_print, is_digit...
+#include "sstream" // stringstreams
+#include "limits" // int limits
+#include "iomanip" // fiels manipulators (set_precision...)
 
 #define INT 0
 #define CHAR 1
