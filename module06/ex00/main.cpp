@@ -11,6 +11,7 @@
 #define FLOAT 2
 #define DOUBLE 3
 #define INVALID 4
+#define OTHER 5 //inf, nan
 
 int count_dec(char *argv1)
 {
@@ -69,13 +70,11 @@ void input_is_double(char *argv)
         std::cout << "int: " << static_cast<int>(d) << std::endl;
     
     std::cout << std::fixed << std::setprecision(num_dec);
-    if (d >= std::numeric_limits<float>::max() || d <= -std::numeric_limits<float>::max())
-        std::cout << "float: impossible" << std::endl;
-    else
-        std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+    std::cout << "float: " << static_cast<float>(d) << "f" << std::endl; // if more than float_max will display inf (or -inf) --> no need to use numeric limits
 
     std::cout << "double: " << d << std::endl;
 }
+
 void input_is_float(char *argv)
 {
     float f;
@@ -94,8 +93,7 @@ void input_is_float(char *argv)
         std::cerr << "value is out of range" << std::endl;
         return;
     }
-
-    if (f < 0 || f > std::numeric_limits<char>::max()) // all will be (implicitly) promoted to float before comparison is made
+    if (f < 0 || f > std::numeric_limits<char>::max()) // numeric limit will be (implicitly) promoted to float before comparison is made
         std::cout << "char: impossible" << std::endl;
     else if (!isprint(f))
         std::cout << "char: Non displayable" << std::endl;
@@ -109,6 +107,28 @@ void input_is_float(char *argv)
     std::cout << std::fixed << std::setprecision(num_dec);
     std::cout << "float: " << f << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(f) << std::endl;
+}
+
+void input_is_other(char *argv)
+{
+    std::string arg(argv);
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    if (arg == "nan" || arg == "nanf")
+    {
+        std::cout << "float: nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
+    }
+    if (arg == "+inf" || arg == "+inff")
+    {
+        std::cout << "float: +inff" << std::endl;
+        std::cout << "double: +inf" << std::endl;
+    }
+    if (arg == "-inf" || arg == "-inff")
+    {
+        std::cout << "float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
+    }
 }
 
 void input_is_char(char *argv)
@@ -148,8 +168,9 @@ void input_is_int(char *argv)
         std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
 
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
-    std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+    std::cout << std::fixed << std::setprecision(1); // when "fixed" is set, the number of numbers after decimal point will always be the same. It is set with "setprecision"
+    std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(i) << std::endl;
 }
 
 int detect_type(char *argv1)
@@ -160,13 +181,12 @@ int detect_type(char *argv1)
         return CHAR;
 
     if (arg == "-inf" || arg == "nan" || arg == "+inf")
-        return DOUBLE;
+        return OTHER;
     if (arg == "-inff" || arg == "nanf" || arg == "+inff")
-        return FLOAT;
+        return OTHER;
     
     if (arg[0] == '-')
         arg = arg.substr(1);
-    //std::cout << arg << std::endl;
     if (is_int_str(arg) == true)
         return INT;
     
@@ -181,8 +201,6 @@ int detect_type(char *argv1)
             floating_point = true;
             fract_part.erase(fract_part.size() - 1);
         }
-        //std::cout <<"dec part: " << dec_part << std::endl;
-        //std::cout << "fract part: " << fract_part << std::endl;
         if (is_int_str(dec_part) && is_int_str(fract_part))
         {
             if (floating_point)
@@ -197,20 +215,6 @@ int detect_type(char *argv1)
 
 int main(int argc, char **argv)
 {
-    // float a;
-    // double b;
-    // int c;
-    // char d;
-    // float y = 42;
-    // a = static_cast<float>(*x);
-    // c = static_cast<int>(*x);
-    // b = static_cast<double>(*x);
-    // d = static_cast<char>(*x);
-    // std::cout << a << std::endl;
-    // std::cout << b << std::endl;
-    // std::cout << c << std::endl;
-    // std::cout << d << std::endl;
-
     if (argc == 1 || argc > 2)
     {
         std::cerr << "Wrong number of arguments" << std::endl;
@@ -224,7 +228,6 @@ int main(int argc, char **argv)
         std::cerr << "Litteral value not char or int or float or double" << std::endl;
         return 0;
     }
-    std::cout << type << std::endl;
 
     if (type == INT)
         input_is_int(argv[1]);
@@ -234,5 +237,6 @@ int main(int argc, char **argv)
         input_is_float(argv[1]);
     else if (type == DOUBLE)
         input_is_double(argv[1]);
-    // if (arg.size() == 1)
+    else if (type == OTHER)
+        input_is_other(argv[1]);
 }
