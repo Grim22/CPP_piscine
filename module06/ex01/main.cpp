@@ -73,6 +73,11 @@ Data* deserialize(void *raw)
     int *i = reinterpret_cast<int*>(str + 8);
     ptr_data->n = *i;
     return ptr_data;
+
+    // more concise synthax (glagan)
+    // ptr_data->s1 = std::string(static_cast<char*>(raw), 8);
+	// ptr_data->n = *reinterpret_cast<int*>(static_cast<char*>(raw) + 8);
+	// ptr_data->s2 = std::string(static_cast<char*>(raw) + 12, 8);
 }
 
 void* serialize(void)
