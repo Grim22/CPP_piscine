@@ -53,7 +53,7 @@ Data* deserialize(void *raw)
     }
     for (size_t i = 0; i < 8; i++)
     {
-        ptr_data->s2 = ptr_data->s2 + str[i + 12];
+        ptr_data->s2 = ptr_data->s2 + str[i + 8 + sizeof(int)];
     }
     int *i = reinterpret_cast<int*>(str + 8);
     ptr_data->n = *i;
@@ -70,7 +70,7 @@ void* serialize(void)
     int i = rand() % std::numeric_limits<int>::max();
     print_data_before_serializing(tab1, tab2, i);
 
-    char *tab_ptr = new char[8 + 4 + 8]; // we will store our data into an array of char
+    char *tab_ptr = new char[8 + sizeof(int) + 8]; // we will store our data into an array of char
     int index = 0;
     for (size_t i = 0; i < 8; i++)
     {
@@ -78,7 +78,7 @@ void* serialize(void)
         index++;
     }
     char *ptr_i_char = reinterpret_cast<char*>(&i); // we reinterpret our int* as a char*, in order to fill our char*
-    for (size_t i = 0; i < 4; i++)
+    for (size_t i = 0; i < sizeof(int); i++)
     {
         tab_ptr[index] = ptr_i_char[i];
         index++;
@@ -104,8 +104,8 @@ int main()
     std::cout << "string2: " << output->s2 << std::endl;
     std::cout << "int: " << output->n << std::endl;
     
-    char *tab_ptr; // we need to cast out void* to char* in order to delete it
+    char *tab_ptr; // we can't call delte on a void*, so we cast it to another type
     tab_ptr = reinterpret_cast<char*>(data);
-    delete []tab_ptr; // was allocated with new []
+    delete[] tab_ptr; // was allocated with new []
     delete output;
 }
