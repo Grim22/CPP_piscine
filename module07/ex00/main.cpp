@@ -2,16 +2,6 @@
 #include "iostream"
 #include "Fixed.hpp"
 
-// int main()
-// {
-//     int a = 32;
-//     int b = 42;
-//     std::cout << max<int>(a, b) << std::endl;
-//     std::cout << min<int>(a, b) << std::endl;
-//     swap<int>(a, b);
-//     std::cout << a << std::endl;
-//     std::cout << b << std::endl;
-
 int main( void ) {
 int a = 2;
 int b = 3;

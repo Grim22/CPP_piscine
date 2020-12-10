@@ -11,7 +11,7 @@ int main()
 {
     int tab[4] = {2, 4, 1, 8};
     std::cout << tab[0] << tab[1] << tab[2] << tab[3] << std::endl;
-    iter<int>(tab, 4, &increment<int>);
+    iter<int>(tab, 4, &increment_int);
     std::cout << tab[0] << tab[1] << tab[2] << tab[3] << std::endl;
 
     char tab2[4] = {'a', 'r', 's', 'g'};
