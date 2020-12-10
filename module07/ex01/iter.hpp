@@ -9,6 +9,16 @@ void iter(T *address, unsigned int lenght, void (*f)(T &elem))
     }
 }
 
+// template with a const param for function f
+template <typename T>
+void iter(T *address, unsigned int lenght, void (*f)(T const &elem))
+{
+    for (unsigned int i = 0; i < lenght; i++)
+    {
+        f(address[i]);
+    }
+}
+
 template <typename T>
 void increment(T &elem)
 {
