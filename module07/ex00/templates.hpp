@@ -1,14 +1,14 @@
 template <typename T>
 void swap(T &x, T &y)
 {
-    T tmp;
-    tmp = x;
+    // T tmp; tmp = x; -> would not work when T is a class with no default constructor
+    T tmp(x);
     x = y;
     y = tmp;
 }
 
 template <typename T>
-const T max(const T &x, const T &y)
+T &max(T &x, T &y)
 {
     if (x > y)
         return x;
@@ -17,7 +17,7 @@ const T max(const T &x, const T &y)
 }
 
 template <typename T>
-const T min(const T &x, const T &y)
+T &min(T &x, T &y)
 {
     if (x < y)
         return x;
