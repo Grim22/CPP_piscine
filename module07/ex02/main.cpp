@@ -25,7 +25,7 @@ int main()
     a = b;
     std::cout << a[3] << std::endl;
     // copy construction
-    Array<int>c(b);
+    const Array<int>c(b);
     std::cout << c[3] << std::endl;
     
     std::cout << "---" << std::endl;

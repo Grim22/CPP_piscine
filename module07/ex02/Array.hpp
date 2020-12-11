@@ -37,13 +37,20 @@ class Array{
 			delete [] this->array;
 		}
 
-		T &operator[](unsigned int n) // we return a reference, so we can do "obj[i] =" (it "can be used as an lvalue") 
+		T &operator[](unsigned int n) // we return a reference, so we can do "obj[i] =" (it "can be used as an lvalue"). In case we return just T, an T type is int for ex, we wouldnt be able to do the assignement: in "array[6] = 3" array[6] is not an lvalue but a rvalue: the value of an int
 		{
 			if (n >= this->a_size)
 				throw std::out_of_range("out of range exception thrown");
 			return this->array[n];
 		}
 
+		const T &operator[](unsigned int n) const // overload of the above function: const version of the same function. this function will be called automatically when the object is const. Why usefull ? A const object wouldn't be able to call the non const version of operator[]. Yet it would make sense to be able to call it, as we use this operator also for reading an element in the array (not only for writing)
+		{
+			if (n >= this->a_size)
+				throw std::out_of_range("out of range exception thrown");
+			return this->array[n];
+		}
+		
 		unsigned int size() const
 		{
 			return this->a_size;
