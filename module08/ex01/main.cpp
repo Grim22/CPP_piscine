@@ -52,11 +52,11 @@ int main()
 
     // use addNumber(int) to fill span
     Span sp(5);
-    sp.addNumber(12);
-    sp.addNumber(-12);
-    sp.addNumber(0);
-    sp.addNumber(42);
-    sp.addNumber(122);
+    sp.addNumber(5);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
     std::cout << "shortest span is: " << sp.shortestSpan() << std::endl;
     std::cout << "longest span is: " << sp.longestSpan() << std::endl;
     std::cout << "----" << std::endl;
