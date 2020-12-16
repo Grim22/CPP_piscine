@@ -46,11 +46,14 @@ void Span::addNumber(int number) throw(spanFullException)
 
 int Span::shortestSpan(void) const throw(noSpanException)
 {
+    // sort (copy of) vector, then find min of abs(vec[i] - vec[i + 1])
     if (this->vec.size() <= 1)
         throw noSpanException();
-    int min = std::abs(this->vec[1] - this->vec[0]);
-    std::vector<int>::const_iterator it;
-    for (it = this->vec.begin(); it + 1 < this->vec.end(); it++)
+
+    std::vector<int> tmp(this->vec);
+    std::sort(tmp.begin(), tmp.end());
+    int min(std::abs(tmp[1] - tmp[0]));
+    for (std::vector<int>::const_iterator it = tmp.begin() + 1; it + 1 < tmp.end(); it++)
     {
         if (std::abs(*it - *(it + 1)) < min)
             min = std::abs(*it - *(it + 1));
