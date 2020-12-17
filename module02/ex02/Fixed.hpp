@@ -31,7 +31,7 @@ class Fixed{
     Fixed   operator/(const Fixed &rhs) const;
     Fixed&  operator++(); // Pre fix incrementation (++a) modifies the current instance and returns it. To be able to do: a = ++b;
     Fixed&  operator--(); 
-    Fixed   operator++(int); // Post fix incrementation (a++) modifies the current instance but returns a copy of the current instance before it was modificated
+    Fixed   operator++(int); // Post fix incrementation (a++) modifies the current instance but returns a copy of the current instance before it was modificated. Cant return a reference to local variable created
     Fixed   operator--(int); // The int parameter is a dummy parameter used to differentiate between prefix and postfix versions of the operators
     static const Fixed& min(Fixed const &a, Fixed const &b);       
     static Fixed&       min(Fixed &a, Fixed &b);       

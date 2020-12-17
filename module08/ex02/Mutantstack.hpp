@@ -20,33 +20,24 @@ class Mutantstack: public std::stack<int>
         class iterator: public std::iterator<std::bidirectional_iterator_tag, int>
         {
             private:
-                int *p;
-                // std::deque<int>::iterator it;
-                // iterator(std::deque<int>::iterator it);
+                std::deque<int>::iterator it;
             public:
-                iterator(int *p);
                 iterator();
+                iterator(std::deque<int>::iterator it);
                 iterator(const iterator &copy);
                 ~iterator();
                 iterator& operator=(const iterator &rhs);
                 int & operator*() const;
                 iterator& operator++(); // preincrement (++a)
-                // iterator& operator++(int); // postincrement (a++)
+                iterator operator++(int); // postincrement (a++)
                 iterator& operator--();
-                // iterator& operator--(int);
+                iterator operator--(int);
                 bool operator==(const iterator &rhs) const;
                 bool operator!=(const iterator &rhs) const;
         };
         
-        iterator begin(void)
-        {
-            return iterator(&*this->c.begin());
-        }
-        iterator end(void)
-        {
-            return iterator(&*this->c.end());
-        }
-
+        iterator begin(void);
+        iterator end(void);
 };
 
 #endif

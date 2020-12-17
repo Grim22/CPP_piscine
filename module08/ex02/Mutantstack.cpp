@@ -3,8 +3,7 @@
 
 Mutantstack::Mutantstack(const std::deque<int> &ctnr): 
 std::stack<int>(ctnr)
-{
-    
+{    
 }
 
 Mutantstack::Mutantstack(const Mutantstack &copy): 
@@ -23,15 +22,25 @@ Mutantstack&   Mutantstack::operator=(const Mutantstack &rhs)
     return(*this);
 }
 
-Mutantstack::iterator::iterator(): p(NULL)
+Mutantstack::iterator Mutantstack::end(void)
+{
+    return Mutantstack::iterator(this->c.end());
+}
+
+Mutantstack::iterator Mutantstack::begin(void)
+{
+    return Mutantstack::iterator(this->c.begin());
+}
+
+Mutantstack::iterator::iterator()
 {
 }
 
-Mutantstack::iterator::iterator(int *ptr): p(ptr)
+Mutantstack::iterator::iterator(std::deque<int>::iterator it): it(it)
 {
 }
 
-Mutantstack::iterator::iterator(const iterator &copy): p(copy.p)
+Mutantstack::iterator::iterator(const iterator &copy): it(copy.it)
 {
 }
 
@@ -41,40 +50,44 @@ Mutantstack::iterator::~iterator()
 
 Mutantstack::iterator & Mutantstack::iterator::operator=(const iterator &rhs)
 {
-    this->p = rhs.p;
+    this->it = rhs.it;
     return *this;
 }
 
 int & Mutantstack::iterator::operator*() const
 {
-    return *this->p;
+    return *this->it;
 }
 
 Mutantstack::iterator& Mutantstack::iterator::operator++()
 {
-    this->p++;
+    this->it++;
     return *this;
 }
 
-// Mutantstack::iterator& Mutantstack::iterator::operator++(int)
-// {
-
-// }
+Mutantstack::iterator Mutantstack::iterator::operator++(int)
+{
+    Mutantstack::iterator tmp(*this);
+    this->it++;
+    return tmp;
+}
 
 Mutantstack::iterator& Mutantstack::iterator::operator--()
 {
-    this->p--;
+    this->it--;
     return *this;
 }
 
-// Mutantstack::iterator& Mutantstack::iterator::operator--(int)
-// {
-
-// }
+Mutantstack::iterator Mutantstack::iterator::operator--(int)
+{
+    Mutantstack::iterator tmp(*this);
+    this->it--;
+    return tmp;
+}
 
 bool Mutantstack::iterator::operator==(const iterator &rhs) const
 {
-    if (this->p == rhs.p)
+    if (this->it == rhs.it)
         return true;
     else
         return false;
@@ -82,14 +95,9 @@ bool Mutantstack::iterator::operator==(const iterator &rhs) const
 
 bool Mutantstack::iterator::operator!=(const iterator &rhs) const
 {
-    if (this->p != rhs.p)
+    if (this->it != rhs.it)
         return true;
     else
         return false;
 }
-
-// Mutantstack::iterator Mutantstack::begin(void)
-// {
-//     return this->top();
-// }
 
