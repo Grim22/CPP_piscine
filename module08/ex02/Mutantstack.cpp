@@ -45,6 +45,49 @@ Mutantstack::iterator & Mutantstack::iterator::operator=(const iterator &rhs)
     return *this;
 }
 
+int & Mutantstack::iterator::operator*() const
+{
+    return *this->p;
+}
+
+Mutantstack::iterator& Mutantstack::iterator::operator++()
+{
+    this->p++;
+    return *this;
+}
+
+// Mutantstack::iterator& Mutantstack::iterator::operator++(int)
+// {
+
+// }
+
+Mutantstack::iterator& Mutantstack::iterator::operator--()
+{
+    this->p--;
+    return *this;
+}
+
+// Mutantstack::iterator& Mutantstack::iterator::operator--(int)
+// {
+
+// }
+
+bool Mutantstack::iterator::operator==(const iterator &rhs) const
+{
+    if (this->p == rhs.p)
+        return true;
+    else
+        return false;
+}
+
+bool Mutantstack::iterator::operator!=(const iterator &rhs) const
+{
+    if (this->p != rhs.p)
+        return true;
+    else
+        return false;
+}
+
 // Mutantstack::iterator Mutantstack::begin(void)
 // {
 //     return this->top();

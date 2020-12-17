@@ -21,22 +21,32 @@ class Mutantstack: public std::stack<int>
         {
             private:
                 int *p;
+                // std::deque<int>::iterator it;
+                // iterator(std::deque<int>::iterator it);
             public:
-                iterator();
                 iterator(int *p);
+                iterator();
                 iterator(const iterator &copy);
                 ~iterator();
                 iterator& operator=(const iterator &rhs);
+                int & operator*() const;
+                iterator& operator++(); // preincrement (++a)
+                // iterator& operator++(int); // postincrement (a++)
+                iterator& operator--();
+                // iterator& operator--(int);
+                bool operator==(const iterator &rhs) const;
+                bool operator!=(const iterator &rhs) const;
         };
         
-        std::deque<int>::iterator begin(void) 
+        iterator begin(void)
         {
-            return this->c.begin();
-        };
-        std::deque<int>::iterator end(void)
+            return iterator(&*this->c.begin());
+        }
+        iterator end(void)
         {
-            return this->c.end();
-        };
+            return iterator(&*this->c.end());
+        }
+
 };
 
 #endif

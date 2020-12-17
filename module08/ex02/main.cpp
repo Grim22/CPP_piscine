@@ -26,11 +26,14 @@ int main()
     //     std::cout << mut.top() << std::endl;
     //     mut.pop();
     // }
-    std::deque<int>::iterator it;
-    for (it = mut.begin(); it != mut.end(); it++)
+    Mutantstack::iterator it = mut.begin();
+    Mutantstack::iterator ite = mut.end();
+    ++it;
+    --it;
+    while (it != ite)
     {
-        std::cout << *it << std::endl;
+    std::cout << *it << std::endl;
+    ++it;
     }
-    
 
 }
