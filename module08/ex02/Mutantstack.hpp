@@ -7,27 +7,28 @@
 #include <iterator>
 #include <deque>
 
-class Mutantstack: public std::stack<int>
+template <typename T>
+class Mutantstack: public std::stack<T>
 {
     private:
         
     public:
-        Mutantstack(const std::deque<int> &ctnr = std::deque<int>()); // acts as a default constructor (default value is specified) -> Ok Coplien
+        Mutantstack(const std::deque<T> &ctnr = std::deque<T>()); // acts as a default constructor (default value is specified) -> Ok Coplien
         Mutantstack(const Mutantstack &copy);
         virtual ~Mutantstack(void);
         Mutantstack&  operator=(const Mutantstack &copy);
 
-        class iterator: public std::iterator<std::bidirectional_iterator_tag, int>
+        class iterator: public std::iterator<std::bidirectional_iterator_tag, T>
         {
             private:
-                std::deque<int>::iterator it;
+                typename std::deque<T>::iterator it;
             public:
                 iterator();
-                iterator(std::deque<int>::iterator it);
+                iterator(typename std::deque<T>::iterator it);
                 iterator(const iterator &copy);
                 ~iterator();
                 iterator& operator=(const iterator &rhs);
-                int & operator*() const;
+                T & operator*() const;
                 iterator& operator++(); // preincrement (++a)
                 iterator operator++(int); // postincrement (a++)
                 iterator& operator--();
@@ -39,5 +40,7 @@ class Mutantstack: public std::stack<int>
         iterator begin(void);
         iterator end(void);
 };
+
+#include "Mutantstack.ipp"
 
 #endif
