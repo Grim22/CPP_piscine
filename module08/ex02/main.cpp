@@ -6,16 +6,7 @@
 
 int main()
 {
-    // std::stack<std::string, std::list<std::string> > st;
-    // st.push("basile");
-    // st.push("brunet");
-    // st.push("venance");
-    // st.top() += "des maz";
-    // while (!st.empty())
-    // {
-    //     std::cout << st.top() << std::endl;
-    //     st.pop();
-    // }
+    //# T is int
 
     Mutantstack<int> mut;
     mut.push(2);
@@ -31,6 +22,10 @@ int main()
         std::cout << *it << std::endl;
         ++it;
     }
+    std::stack<int> st(mut);
+    std::cout << "---" << std::endl;
+
+    // T is string
     Mutantstack<std::string> mut1;
     mut1.push("basile");
     mut1.push("brunet");
@@ -39,14 +34,23 @@ int main()
     Mutantstack<std::string>::iterator ite1 = mut1.end();
     it1++;
     it1--;
+    *it1 = "Basileb"; // can modify element through iterator
     while (it1 != ite1)
     {
         std::cout << *it1 << std::endl;
         ++it1;
     }
-    Mutantstack<std::string> mut1_bis;
-    mut1_bis = mut1;
-    std::cout << mut1_bis.top() << std::endl;
+    std::cout << "---" << std::endl;
 
+    // try const_iterator
+    const Mutantstack<std::string> mut1_bis(mut1);
+    Mutantstack<std::string>::const_iterator it2 = mut1_bis.begin(); // calls const begin() overlead
+    Mutantstack<std::string>::const_iterator ite2 = mut1_bis.end();
+    // *it2 = "Basileb"; // can't modify element trhough iterator
+    while (it2 != ite2)
+    {
+        std::cout << *it2 << std::endl;
+        ++it2;
+    }
 
 }

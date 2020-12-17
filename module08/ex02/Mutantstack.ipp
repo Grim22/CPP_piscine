@@ -38,83 +38,13 @@ typename Mutantstack<T>::iterator Mutantstack<T>::begin(void)
 }
 
 template <typename T>
-Mutantstack<T>::iterator::iterator()
+typename Mutantstack<T>::const_iterator Mutantstack<T>::end(void) const
 {
+    return Mutantstack::const_iterator(this->c.end());
 }
 
 template <typename T>
-Mutantstack<T>::iterator::iterator(typename std::deque<T>::iterator it): it(it)
+typename Mutantstack<T>::const_iterator Mutantstack<T>::begin(void) const
 {
+    return Mutantstack::const_iterator(this->c.begin());
 }
-
-template <typename T>
-Mutantstack<T>::iterator::iterator(const iterator &copy): it(copy.it)
-{
-}
-
-template <typename T>
-Mutantstack<T>::iterator::~iterator()
-{
-}
-
-template <typename T>
-typename Mutantstack<T>::iterator & Mutantstack<T>::iterator::operator=(const iterator &rhs)
-{
-    this->it = rhs.it;
-    return *this;
-}
-
-template <typename T>
-T & Mutantstack<T>::iterator::operator*() const
-{
-    return *this->it;
-}
-
-template <typename T>
-typename Mutantstack<T>::iterator& Mutantstack<T>::iterator::operator++()
-{
-    this->it++;
-    return *this;
-}
-
-template <typename T>
-typename Mutantstack<T>::iterator Mutantstack<T>::iterator::operator++(int)
-{
-    Mutantstack::iterator tmp(*this);
-    this->it++;
-    return tmp;
-}
-
-template <typename T>
-typename Mutantstack<T>::iterator& Mutantstack<T>::iterator::operator--()
-{
-    this->it--;
-    return *this;
-}
-
-template <typename T>
-typename Mutantstack<T>::iterator Mutantstack<T>::iterator::operator--(int)
-{
-    Mutantstack::iterator tmp(*this);
-    this->it--;
-    return tmp;
-}
-
-template <typename T>
-bool Mutantstack<T>::iterator::operator==(const iterator &rhs) const
-{
-    if (this->it == rhs.it)
-        return true;
-    else
-        return false;
-}
-
-template <typename T>
-bool Mutantstack<T>::iterator::operator!=(const iterator &rhs) const
-{
-    if (this->it != rhs.it)
-        return true;
-    else
-        return false;
-}
-

@@ -18,27 +18,15 @@ class Mutantstack: public std::stack<T>
         virtual ~Mutantstack(void);
         Mutantstack&  operator=(const Mutantstack &copy);
 
-        class iterator: public std::iterator<std::bidirectional_iterator_tag, T>
-        {
-            private:
-                typename std::deque<T>::iterator it;
-            public:
-                iterator();
-                iterator(typename std::deque<T>::iterator it);
-                iterator(const iterator &copy);
-                ~iterator();
-                iterator& operator=(const iterator &rhs);
-                T & operator*() const;
-                iterator& operator++(); // preincrement (++a)
-                iterator operator++(int); // postincrement (a++)
-                iterator& operator--();
-                iterator operator--(int);
-                bool operator==(const iterator &rhs) const;
-                bool operator!=(const iterator &rhs) const;
-        };
-        
-        iterator begin(void);
-        iterator end(void);
+        typedef typename std::deque<T>::iterator iterator; // we define a "member type" (or "nested type"): the class name acts like a namespace for the nested type: Mutantstack::iterator
+        typedef typename std::deque<T>::const_iterator const_iterator;
+
+        iterator begin(void); // typename std::deque<T>::iterator begin(void) is equivalent
+        iterator end(void); // typename std::deque<T>::iterator end(void) is equivalent
+
+        const_iterator begin(void) const; // this overload will be used by const mutantstack object (const_iterator is returned, which means that *const_it can not be modified)
+        const_iterator end(void) const;
+
 };
 
 #include "Mutantstack.ipp"
