@@ -8,12 +8,12 @@ int main()
 {
     //# T is int
 
-    Mutantstack<int> mut;
+    MutantStack<int> mut;
     mut.push(2);
     mut.push(4);
     mut.push(8);
-    Mutantstack<int>::iterator it = mut.begin();
-    Mutantstack<int>::iterator ite = mut.end();
+    MutantStack<int>::iterator it = mut.begin();
+    MutantStack<int>::iterator ite = mut.end();
     ++it;
     --it;
     *it = 12;
@@ -26,12 +26,12 @@ int main()
     std::cout << "---" << std::endl;
 
     // T is string
-    Mutantstack<std::string> mut1;
+    MutantStack<std::string> mut1;
     mut1.push("basile");
     mut1.push("brunet");
     mut1.push("student at 42");
-    Mutantstack<std::string>::iterator it1 = mut1.begin();
-    Mutantstack<std::string>::iterator ite1 = mut1.end();
+    MutantStack<std::string>::iterator it1 = mut1.begin();
+    MutantStack<std::string>::iterator ite1 = mut1.end();
     it1++;
     it1--;
     *it1 = "Basileb"; // can modify element through iterator
@@ -43,9 +43,9 @@ int main()
     std::cout << "---" << std::endl;
 
     // try const_iterator
-    const Mutantstack<std::string> mut1_bis(mut1);
-    Mutantstack<std::string>::const_iterator it2 = mut1_bis.begin(); // calls const begin() overlead
-    Mutantstack<std::string>::const_iterator ite2 = mut1_bis.end();
+    const MutantStack<std::string> mut1_bis(mut1);
+    MutantStack<std::string>::const_iterator it2 = mut1_bis.begin(); // calls const begin() overlead
+    MutantStack<std::string>::const_iterator ite2 = mut1_bis.end();
     // *it2 = "Basileb"; // can't modify element trhough iterator
     while (it2 != ite2)
     {
@@ -54,3 +54,29 @@ int main()
     }
 
 }
+
+// int main()
+// {
+// MutantStack<int> mstack;
+// mstack.push(5);
+// mstack.push(17);
+// std::cout << mstack.top() << std::endl;
+// mstack.pop();
+// std::cout << mstack.size() << std::endl;
+// mstack.push(3);
+// mstack.push(5);
+// mstack.push(737);
+// //[...]
+// mstack.push(0);
+// MutantStack<int>::iterator it = mstack.begin();
+// MutantStack<int>::iterator ite = mstack.end();
+// ++it;
+// --it;
+// while (it != ite)
+// {
+// std::cout << *it << std::endl;
+// ++it;
+// }
+// std::stack<int> s(mstack);
+// return 0;
+// }
