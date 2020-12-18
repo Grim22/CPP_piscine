@@ -4,7 +4,7 @@
 <p>Module 02: Ad-hoc polymorphism, operators overload and canonical classes</p>
 <p>Module 03: Inheritance</p>
 <p>Module 04: Subtype polymorphism, abstract classes, interfaces</p>
-<p>Module 05: Week 1 revisions, Exceptions</p>
+<p>Module 05: Exceptions</p>
 <p>Module 06: C++ casts</p>
 <p>Module 07: C++ templates</p>
 <p>Module 08: Templated containers, iterators, algorithms</p>
