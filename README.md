@@ -14,27 +14,27 @@
 <p>General:</p>
 <p>&quot;man&quot; of c++: cplusplus.com</p>
 <p><br></p>
-<p>Module 00: Namespace, class, member functions, stdio stream, initialization lists, static, const, and lots of basic stuff</p>
+<p><strong>Module 00</strong>:</p>
 <p>&nbsp; &nbsp; - reading input with cin.ignore() and getline: https://stackoverflow.com/questions/25475384/when-and-why-do-i-need-to-use-cin-ignore-in-c</p>
 <p>&nbsp; &nbsp; - initalizing const member: member initializer list: https://www.learncpp.com/cpp-tutorial/8-5a-constructor-member-initializer-lists/</p>
 <p>&nbsp; &nbsp; - rvalues and lvalues https://www.internalpointers.com/post/understanding-meaning-lvalues-and-rvalues-c</p>
-<p>Module 01: Memory allocation, References, Pointers to members, File streams</p>
+<p><strong>Module 01:</strong>&nbsp;</p>
 <p>&nbsp; &nbsp; - pointers vs references: https://www.geeksforgeeks.org/pointers-vs-references-cpp/</p>
 <p>&nbsp; &nbsp; - returning reference to local variable: https://stackoverflow.com/questions/4643713/c-returning-reference-to-local-variable</p>
 <p>&nbsp; &nbsp; - temporary objects: http://www.gotw.ca/gotw/002.htm</p>
-<p>Module 02: Ad-hoc polymorphism, operators overload and canonical classes</p>
+<p><strong>Module 02:&nbsp;</strong></p>
 <p>&nbsp; &nbsp; - overloading the subscript ([]) operator: https://www.learncpp.com/cpp-tutorial/98-overloading-the-subscript-operator/</p>
-<p>&nbsp; &nbsp; Module 03: Inheritance</p>
+<p><strong>Module 03</strong>:&nbsp;</p>
 <p>&nbsp; &nbsp; - overriding behaviour of base class member function: https://www.learncpp.com/cpp-tutorial/11-6a-calling-inherited-functions-and-overriding-behavior/</p>
 <p>&nbsp; &nbsp; - virtual base class: https://www.geeksforgeeks.org/virtual-base-class-in-c/</p>
-<p>Module 04: Subtype polymorphism, abstract classes, interfaces</p>
+<p><strong>Module 04:</strong>&nbsp;</p>
 <p>&nbsp; &nbsp; - why virtual destructors https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors and &nbsp;https://stackoverflow.com/questions/3628529/should-c-interfaces-have-a-virtual-destructor</p>
 <p>&nbsp; &nbsp; - why operators dont need to be virtual https://stackoverflow.com/questions/669818/virtual-assignment-operator-c</p>
 <p>&nbsp; &nbsp; - polymorphic clones: https://www.fluentcpp.com/2017/09/08/make-polymorphic-copy-modern-cpp/&nbsp;</p>
 <p>&nbsp; &nbsp; - pure virtual functions WITH implementation https://stackoverflow.com/questions/2089083/pure-virtual-function-with-implementation</p>
-<p>Module 07: C++ templates</p>
+<p><strong>Module 07</strong>:</p>
 <p>&nbsp; &nbsp; - where to implement template ? (.hpp ? .cpp ? .ipp ?) https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file</p>
-<p>Module 08: Templated containers, iterators, algorithms</p>
+<p><strong>Module 08:</strong></p>
 <p>&nbsp; &nbsp; - how std::deque work internally: https://thispointer.com/what-is-stddeque-and-how-deque-works-internally</p>
 <p><br></p>
 <p><br></p>
