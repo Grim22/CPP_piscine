@@ -16,10 +16,8 @@
 <p>&nbsp;</p>
 <p><strong>Module 00</strong>:</p>
 <p>&nbsp; &nbsp; - reading input with cin.ignore() and getline: <a href="https://stackoverflow.com/questions/25475384/when-and-why-do-i-need-to-use-cin-ignore-in-c">stackoverflow</a></p>
-<p>&nbsp; &nbsp; - initalizing const member: member initializer list:</p>
-<p style="padding-left: 40px;"><a href="https://www.learncpp.com/cpp-tutorial/8-5a-constructor-member-initializer-lists/">learncpp</a></p>
-<p>&nbsp; &nbsp; - rvalues and lvalues</p>
-<p style="padding-left: 40px;"><a href="https://www.internalpointers.com/post/understanding-meaning-lvalues-and-rvalues-c">internalpointers.com</a></p>
+<p>&nbsp; &nbsp; - initalizing const member: member initializer list: <a href="https://www.learncpp.com/cpp-tutorial/8-5a-constructor-member-initializer-lists/">learncpp</a></p>
+<p>&nbsp; &nbsp; - rvalues and lvalues <a href="https://www.internalpointers.com/post/understanding-meaning-lvalues-and-rvalues-c">internalpointers.com</a></p>
 <p><strong>Module 01:</strong>&nbsp;</p>
 <p>&nbsp; &nbsp; - pointers vs references: <a href="https://www.geeksforgeeks.org/pointers-vs-references-cpp/">geeksforgeeks</a></p>
 <p>&nbsp; &nbsp; - returning reference to local variable: <a href="https://stackoverflow.com/questions/4643713/c-returning-reference-to-local-variable">stackoverflow</a></p>
