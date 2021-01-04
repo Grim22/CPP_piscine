@@ -12,7 +12,7 @@
 <h2>Ressources</h2>
 <p>&nbsp;</p>
 <p>General:</p>
-<p>"man" of c++: cplusplus.com</p>
+<p>"man" of c++: <a href="cplusplus.com">cplusplus.com</a></p>
 <p>&nbsp;</p>
 <p><strong>Module 00</strong>:</p>
 <p>&nbsp; &nbsp; - reading input with cin.ignore() and getline: <a href="https://stackoverflow.com/questions/25475384/when-and-why-do-i-need-to-use-cin-ignore-in-c">stackoverflow</a></p>
@@ -40,7 +40,7 @@
 <p>&nbsp;</p>
 <h2>Notes</h2>
 <p>&nbsp;</p>
-<p>Static and dynamic binding // virtual keyword</p>
+<h4>Static and dynamic binding // virtual keyword</h4>
 <p>&nbsp; &nbsp; ex:</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; Pointer to base class Base *p = q</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; -&gt; has a declared type p&nbsp;</p>
@@ -52,23 +52,23 @@
 <p>&nbsp; &nbsp; Dynamic (late) linkage: done at execution time -&gt; p is of real type, Derived::func() will be linked</p>
 <p>&nbsp; &nbsp; When "virtual" is added before a function declaration, dynamic linkage is done</p>
 <p>&nbsp;</p>
-<p>Polymorphism</p>
+<h4>Polymorphism</h4>
 <p>&nbsp; &nbsp; (Run-time) polymorphism: virtual functions</p>
 <p>&nbsp; &nbsp; &lt;&gt; (Compile-time)polymorphism: function overloading</p>
 <p>&nbsp;</p>
-<p>Abstract classes and interfaces</p>
+<h4>Abstract classes and interfaces</h4>
 <p>&nbsp; &nbsp; Abstract class: at least one function has no definition: virtual func () = 0 ("pure virtual function)</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; - cannot be instanciated: can only be used as base class (func() will be defined in derived classes)</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; - can have attributes (so must also have a constructor, which will be called when instanciating derived class objects)</p>
 <p>&nbsp; &nbsp; Interface: &nbsp;member functions are only pure virtual functions</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; - can't have any attributes (no need for constructor)</p>
 <p>&nbsp;</p>
-<p>Exceptions:</p>
+<h4>Exceptions:</h4>
 <p>&nbsp; &nbsp; A try catch block is placed aroud the calls that might throw an exception</p>
 <p>&nbsp; &nbsp; A try block is followed by one or more catch blocks: each catch block can catch a different type of Exceptions</p>
 <p>&nbsp; &nbsp; After an exception is thrown, the execution resumes after the try catch block (not after the Throw statement)</p>
 <p>&nbsp;</p>
-<p>Casts:</p>
+<h4>Casts:</h4>
 <p>&nbsp; &nbsp; Different cast natures:</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; - classic "conversion" (ex: from int to float): underlying values (bits) are change&nbsp;</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; - identitary conversion: values are not changed, only the way there are interpreted (concerns only poiters)</p>
@@ -93,7 +93,7 @@
 <p>&nbsp; &nbsp; &nbsp; &nbsp; Cast operators are member functions of a class, that define a default behaviour when object is converted to another type ("user defined conversion function")</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; ex: foo a; int b; b = a -&gt; member function operator int() will handle it</p>
 <p>&nbsp;</p>
-<p>Const class objects</p>
+<h4>Const class objects</h4>
 <p>&nbsp; &nbsp; - can't modify attributes</p>
 <p>&nbsp; &nbsp; - so can only call member functions declared as const</p>
 <p>&nbsp; &nbsp; - a class can have two overloads of member function func(), one const and the other non const. A const object will automatically call the func() const function&nbsp;</p>
